@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import {UserService} from './entity/user/user.service';
 import { IndexComponent } from './components/index/index.component';
+import {HeaderComponent} from './components/header/header.component'
 // reflect urls to components
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    IndexComponent
+    IndexComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
