@@ -20,9 +20,9 @@ app.use(
 
 app.use(function(req, res, next) {
   if (
-    req.url == "/login" ||
+   // req.url == "/login" ||
     req.url == "/do_login" ||
-    req.url == "/register" ||
+   // req.url == "/register" ||
     req.url == "/do_register" ||
     req.url == "/logout"
   ) {

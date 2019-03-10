@@ -16,7 +16,8 @@ import { IndexComponent } from './components/index/index.component';
 // reflect urls to components
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
-  {path: 'index', component : IndexComponent}
+  {path: 'index', component : IndexComponent},
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
 ];
 
 @NgModule({

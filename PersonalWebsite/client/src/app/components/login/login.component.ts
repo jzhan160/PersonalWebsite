@@ -11,17 +11,25 @@ import { UserService } from '../../entity/user/user.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-
+  registerForm: FormGroup;
   constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+    this.registerForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   login(username, password) {
-    console.log(username);
-    this.userService.userLogin(username, password).subscribe(() => {
+     this.userService.userLogin(username, password).subscribe(() => {
+      this.router.navigate(['/index']);
+    });
+  }
+  register(username, password) {
+     this.userService.userRegister(username, password).subscribe(() => {
       this.router.navigate(['/index']);
     });
   }

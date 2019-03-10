@@ -25,7 +25,7 @@
 
 <div class="container" id="container" >
  	<div class="form-container sign-up-container" >
-		<form [formGroup]="loginForm" class="create-form">
+		<form [formGroup]="registerForm" class="create-form">
 			<h1>Create Account</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -33,10 +33,10 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
+      <input matInput placeholder="Username" formControlName="username" #usernameForReg>
+      <input matInput placeholder="Password" formControlName="password" #passwordForReg>
+      <button type="submit" (click)=" register(usernameForReg.value,passwordForReg.value)" [disabled]="registerForm.pristine || registerForm.invalid" >Sign Up</button>
+
 		</form>
   </div>
 
@@ -52,7 +52,7 @@
       <input matInput placeholder="Username" formControlName="username" #username>
       <input matInput placeholder="Password" formControlName="password" #password>
 			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+      <button type="submit" (click)=" login(username.value,password.value)" [disabled]="loginForm.pristine || loginForm.invalid" >Sign In</button>
 		</form>
   </div>
 

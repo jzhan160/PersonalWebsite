@@ -27,6 +27,18 @@ export class UserService {
     return this.http.post(`${this.uri}/do_login`, user);
   }
 
+  userRegister(uname, pwd){
+    const user = {
+      username: uname,
+      password: pwd
+    };
+    return this.http.post(`${this.uri}/do_register`, user);
+  }
+
+  userLogout(){
+    return this.http.get(`${this.uri}/logout`);
+  }
+
   // updateIssue(id, title, responsible, description, severity, status) {
   //   const issue = {
   //     title: title,

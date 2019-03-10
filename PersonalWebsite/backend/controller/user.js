@@ -8,9 +8,7 @@ router.use(bodyParser.json())
 
 var DB = require('../db/db.js');
 
-router.get('/register', function (req, res) {
-    res.render('register');
-})
+
 router.post('/do_register', function(req,res){
     var username = req.body.username;
     var password = md5(req.body.password);
@@ -29,16 +27,12 @@ router.post('/do_register', function(req,res){
                 password: password
             },function(err, data){
                 req.session.username = req.body.username;
-                res.redirect('/setup');
+                res.status(200).json({'user': 'Added successfully'});
             });
          }
     });
 })
 
-
-router.get('/login', function (req, res) {
-    res.render('login');
-})
 
 router.post('/do_login', function (req, res) {
     var username = req.body.username;
@@ -53,7 +47,7 @@ router.post('/do_login', function (req, res) {
         if (data.length > 0) {
             console.log(data);
             req.session.username = req.body.username;
-            res.redirect('/index');
+            res.status(200).json({'user': 'Login successfully'});
         }
         else {
             res.end("<script>alert('please login.'); location.href = '/login'</script>");
@@ -68,7 +62,7 @@ router.get('/index', function (req, res) {
 
 router.get('/logout', function (req, res) {
     req.session.username = null;
-    res.render('login');
+    res.status(200).json({'user': 'Logout'});
 })
 
 
