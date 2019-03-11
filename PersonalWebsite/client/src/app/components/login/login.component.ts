@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
   register(username, password) {
      this.userService.userRegister(username, password).subscribe(() => {
-      this.router.navigate(['/index']);
+      this.router.navigate(['/init_style']);
     });
   }
 

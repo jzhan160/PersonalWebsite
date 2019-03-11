@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css";
+
+
 .mat-toolbar.mat-primary {
-  background: 	#4169E1;
+  background: 	#3D3D3D;
   color: #ffff;
 }
 
