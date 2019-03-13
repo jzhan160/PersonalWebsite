@@ -18,24 +18,25 @@ app.use(
   })
 );
 
-app.use(function(req, res, next) {
-  if (
-   // req.url == "/login" ||
-    req.url == "/do_login" ||
-   // req.url == "/register" ||
-    req.url == "/do_register" ||
-    req.url == "/logout"
-  ) {
-    next();
-  } else if (req.session.username && req.session.username != "") {
-    //global data
-    app.locals["username"] = req.session.username;
-    next();
-  } else {
-    //if the session expires
-    res.redirect("/login");
-  }
-});
+// app.use(function(req, res, next) {
+//   console.log(req.url);
+//   // if (
+//   //  // req.url == "/login" ||
+//   //   req.url == "/do_login" ||
+//   //  // req.url == "/register" ||
+//   //   req.url == "/do_register" ||
+//   //   req.url == "/logout"
+//   // ) {
+//   //   next();
+//   // } else if (req.session.username && req.session.username != "") {
+//   //   //global data
+//   //   app.locals["username"] = req.session.username;
+//   //   next();
+//   // } else {
+//   //   //if the session expires
+//   //   res.redirect("/login");
+//   // }
+// });
 
 var user = require("./controller/user");
 var resume = require("./controller/resume");

@@ -32,6 +32,7 @@ const routes: Routes = [
   {path: 'template2', component: Template2Component},
   {path: 'resume', component: ResumeTemplate1Component},
   {path: 'init_style', component: StyleComponent},
+  {path: 'init_info/:id', component: InfoComponent},
 
 
   { path: '', redirectTo: 'login', pathMatch: 'full'},

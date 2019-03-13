@@ -39,18 +39,22 @@ export class UserService {
     return this.http.get(`${this.uri}/logout`);
   }
 
-  // updateIssue(id, title, responsible, description, severity, status) {
-  //   const issue = {
-  //     title: title,
-  //     responsible: responsible,
-  //     description: description,
-  //     severity: severity,
-  //     status: status
-  //   };
-  //   return this.http.post(`${this.uri}/issues/update/${id}`, issue);
-  // }
+  selectTemplate(tId){
+    const tempalte = {
+      templateId: tId
+     };
+    // // return this.http.post(`${this.uri}/set_up`, tempalte);
+    return this.http.post(`${this.uri}/template`, tempalte);
 
-  // deleteIssue(id) {
-  //   return this.http.get(`${this.uri}/issues/delete/${id}`);
-  // }
+  }
+  completeInfo(uname, emai, addre, pho) {
+      const user = {
+         username: uname,
+         email: emai,
+         address: addre,
+         phone: pho
+      };
+      return this.http.post(`${this.uri}/submit_info`, user);
+
+  }
 }
