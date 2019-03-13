@@ -1,0 +1,127 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800);
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: #FDFCEC;
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+}
+#toolbar{
+  float: left;
+  width: 220px;
+  height: 100%;
+  background-color: #3D3D3D;
+  display: block;
+  padding-top: 15px;
+    transition: .1s;
+  box-shadow: 1px 0px 4px #212424;
+
+}
+#toolbar .wrapper .first{
+  width: 100%;
+  background-color: #3F4545;
+  margin: 0 auto;
+}
+#toolbar .wrapper  h2{
+	color: #FDFCEC;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  padding-left: 25px;
+}
+#toolbar .wrapper .first ul{
+  padding: 0px
+}
+#toolbar .wrapper .first ul li{
+  list-style-type: none;
+  padding: 10px;
+  transition: .3s;
+  border-bottom: #313636 solid 1px;
+}
+#toolbar .wrapper .first ul li:hover{
+  background-color: #363B3B;
+  transition: .3s;
+   text-indent:5px;
+} 
+#toolbar .wrapper a{
+  font-weight: 100;
+  color: #FDFCEC;
+  text-decoration: none;
+  display: inline-block;
+}
+#toolbar .wrapper .title{
+  font-size: 25px;
+  text-align:center;
+  color: #FDFCEC;
+} 
+.fa-cog.top{
+  padding-left: 10px;
+}
+.fa-times{
+	float: right;
+  padding: 10px 10px 10px 10px;
+  transition: .3s;
+  color: #575E5E;
+  cursor:pointer;
+}
+.fa-times:hover{
+	color: #fff;
+  transition: .3s;
+}
+.fa-bars{
+  color: #2F3333;
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor:pointer;
+   transition: .3s;
+opacity:0; 
+}
+.fa-bars:hover{
+  color: #575E5E;
+  transition: .3s;
+}
+i{
+	padding-right: 6px;
+}
+
+#field{
+  width:100%;
+  height: 100%;
+  background-color: #434343;
+}
+#field .grid .grid-inner{
+  width: 750px;
+  height: 750px;
+  background-color: red;
+  margin-left: 30%;
+  opacity: .3;
+}
+#field .grid{
+	padding-top: 50px;
+      background-color: transparent;
+    background-image:       linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  height: 100%;
+  width: 100%;
+  margin:0 auto;
+    background-size:50px 50px;
+}
+#copyright-toolbar{
+  font-size: 12px;
+  color: #888;
+  bottom: 10px;
+  position: absolute;
+  margin-left: 10px;
+  
+}
+#copyright-toolbar a.c-a{
+  color: #888;
+  transition: .3s;
+}
+#copyright-toolbar a.c-a:hover{
+  color: #fff;
+  transition: .3s;
+}
+#toolbar .wrapper a.new-card.activated{
+  opacity: .2;
+}
