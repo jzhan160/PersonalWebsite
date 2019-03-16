@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule,
    MatSelectModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule,
     MatDividerModule, MatSnackBarModule, MatMenuModule } from '@angular/material';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +20,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { Template1Component } from './components/homepage/template1/template1.component';
 import { Template2Component } from './components/homepage/template2/template2.component';
 import {ResumeTemplate1Component} from './components/resume/template1/template1.component';
+import {ResumeTemplate2Component} from './components/resume/template2/template2.component';
+import {ResumeTemplate3Component} from './components/resume/template3/template3.component';
+
 import { StyleComponent } from './components/setup/style/style.component';
 import { InfoComponent } from './components/setup/info/info.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -31,7 +35,7 @@ const routes: Routes = [
   {path: 'dashboardTest', component : DashboardComponent},
   {path: 'template1', component: Template1Component},
   {path: 'template2', component: Template2Component},
-  {path: 'resume', component: ResumeTemplate1Component},
+  {path: 'resume', component: ResumeTemplate3Component},
   {path: 'init_style', component: StyleComponent},
   {path: 'init_info/:id', component: InfoComponent},
 
@@ -49,9 +53,12 @@ const routes: Routes = [
     Template1Component,
     Template2Component,
     ResumeTemplate1Component,
+    ResumeTemplate2Component,
+    ResumeTemplate3Component,
     StyleComponent,
     InfoComponent,
-    DashboardComponent
+    DashboardComponent,
+
    ],
   imports: [
     BrowserModule,
@@ -71,7 +78,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatMenuModule
+    MatMenuModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

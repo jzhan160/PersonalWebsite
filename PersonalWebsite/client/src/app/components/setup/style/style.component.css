@@ -40,7 +40,7 @@ body {
 
 .heading {
   text-align: center;
-  margin: 8% 0 10% 0;
+  margin: 8% 0 8% 0;
   /* font-family: 'Anton', sans-serif; */
 }
 
@@ -63,7 +63,7 @@ hr {
 }
 
 .picture-area {
-  max-width: 90vw;
+  max-width: 92vw;
   margin: 0 auto;
   margin-bottom: 10%;
 }
@@ -76,7 +76,8 @@ hr {
 }
 
 .img-box img {
-  width: 100%;
+  width: 28vw;
+  height:30vh;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, .4);
   margin-bottom: 7.5%;
   transition: all .3s;

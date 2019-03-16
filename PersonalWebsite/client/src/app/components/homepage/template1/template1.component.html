@@ -1,138 +1,29 @@
-<div class="page-wrap">
-  <div class="jumbotron">
-    <div style="margin-top:20px" class="container">
-         <button mat-menu-item [matMenuTriggerFor]="menu" >
-            <!-- <mat-icon>menu</mat-icon> -->
-            <i style="color:#fff; position: relative; bottom:10px; cursor:pointer;"
-          class="fa fa-bars fa-2x fa-fw" ></i>
-         </button>
+<section class="landing">
+    <h1 class="landingHeader">My Portfolio</h1>
+    <nav>
+      <button class="navButton">
+        Resume
+      </button>
+      <button class="navButton">
+        Story
+      </button>
+      <button class="navButton">
+        Repository
+      </button>
+    </nav>
+  </section>
 
-          <mat-menu #menu="matMenu">
-              <button mat-menu-item>
-                <mat-icon>dialpad</mat-icon>
-                <span>Redial</span>
-              </button>
-              <button mat-menu-item disabled>
-                <mat-icon>voicemail</mat-icon>
-                <span>Check voicemail</span>
-              </button>
-              <button mat-menu-item>
-                <mat-icon>notifications_off</mat-icon>
-                <span>Disable alerts</span>
-              </button>
-            </mat-menu>
-      <h1>I'm Tim</h1>
-      <div class="spacer"></div>
-      <h1>Designer + Developer</h1>
-      <div class="spacer"></div>
-      <hr />
-      <hr />
-      <h2 class="text-center">I build awesome web apps</h2>
-    </div>
-  </div>
+  <header class="workHeader">
+    <h1 class="sectionHeader">My Work</h1>
+    <p class="sectionSub"><i>See what i've made.</i></p>
+  </header>
+  <section class="gallery">
+    <img class="picture" src="https://images.unsplash.com/photo-1442406964439-e46ab8eff7c4?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=183f00855ea5cbd2199ad30c720b8d82">
+    <img class="picture" src="https://images.unsplash.com/photo-1421757381940-5d269570b21c?crop=entropy&fit=crop&fm=jpg&h=725&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1225">
 
-  <div class="section" id="about">
-    <h1>About</h1>
-    <hr />
-  </div>
+    <img class="picture" src="https://images.unsplash.com/photo-1414690165279-49ab0a9a7e66?crop=entropy&fit=crop&fm=jpg&h=725&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1225">
+    <img class="picture" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/FVIYKRN6CI.jpg">
+    <img class="picture" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/BUQU9ERJAC.jpg">
+    <img class="picture" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8Z2QWLCH72.jpg">
+  </section>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="well">
-          <img
-            src="http://timothy.expert/codepen-resources/person_laptop.jpg"
-            style="height:100%; width:100%"
-          />
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="well">
-          <h3>Tim Robert-Fitzgerald</h3>
-          <p>
-            I'm a Chicago based freelance full-stack web developer and I would
-            love to help you with your project. Currently, I do all web related
-            jobs and specialize in HTML5/CSS3, PHP, SQL. I can build any
-            website, from huge dynamic apps to small static sites, on any
-            budget. See my work below.
-          </p>
-          <p><a href="#form" class="btn btn-default">Hire me</a></p>
-        </div>
-      </div>
-    </div>
-    <!--/.row-->
-  </div>
-  <!--/.container-->
-
-
-
-  <!--<div class="hidden-xs"><div class="work-together" id="contact">LETS WORK TOGETHER</div></div>-->
-  <div class="section" id="contact">
-    <h1>Let&apos;s Work Together</h1>
-    <hr />
-  </div>
-
-  <div class="work-together">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-          <h3>Send Me a Message</h3>
-          <div class="spacer"></div>
-          <!-- <form class="form-horizontal" role="form" id="form" method="post">
-              <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Name</label>
-                <div class="col-sm-10">
-                  <input type="text" class="contact form-control" name="name" id="name" placeholder="Name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="email" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="email" class="contact form-control" name="email" id="email" placeholder="Email">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="subject" class="col-sm-2 control-label">Subject</label>
-                <div class="col-sm-10">
-                  <input type="text" class="contact form-control" name="subject" id="subject" placeholder="Subject">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="message" class="col-sm-2 control-label">Message</label>
-                <div class="col-sm-10">
-                  <textarea class="contact form-control" rows="3" name="message" id="message" placeholder="Message"></textarea>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <input type="submit" value="Send" class="btn btn-default" name="submit">
-                </div>
-              </div>
-            </form> -->
-        </div>
-        <!--/.col-->
-        <div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
-          <h3>Contact Details</h3>
-          <div class="spacer"></div>
-          <p class="lead" style="margin-bottom:0px;">
-            <i class="fa fa-map-marker"></i>&nbsp; 6519 N. Fairfield Avenue
-          </p>
-          <p class="lead" style="text-indent:24px">Chicago, IL, 60645</p>
-          <p class="lead"><i class="fa fa-phone"></i>&nbsp; 312 576-9620</p>
-          <p class="lead">
-            <i class="fa fa-envelope"></i>&nbsp; contact@timothy.expert
-          </p>
-        </div>
-      </div>
-      <!--/.row-->
-    </div>
-    <!--/.container-->
-    <div class="container hidden-sm hidden-xs">
-      <div class="spacer"></div>
-      <div class="spacer"></div>
-      <footer><p class="pull-right">Made in Chicago by Tim</p></footer>
-    </div>
-  </div>
-  <!--/.work-together-->
-</div>
-<!--/.page-wrap-->
