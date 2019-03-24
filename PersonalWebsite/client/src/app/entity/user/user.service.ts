@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpResponse } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,19 +17,25 @@ export class UserService {
   //   return this.http.get(`${this.uri}/issues/${id}`);
   // }
 
-  userLogin(uname, pwd) {
-    console.log(uname);
+  searchDomainName(dname){
+    const domain = {
+      domainName: dname
+     };
+     return this.http.post(`${this.uri}/searchDomainName`, domain);
+  }
 
+  userLogin(emai, pwd) {
     const user = {
-      username: uname,
+      email: emai,
       password: pwd
     };
+
     return this.http.post(`${this.uri}/do_login`, user);
   }
 
-  userRegister(uname, pwd){
+  userRegister(emai, pwd){
     const user = {
-      username: uname,
+      email: emai,
       password: pwd
     };
     return this.http.post(`${this.uri}/do_register`, user);
@@ -47,9 +53,10 @@ export class UserService {
     return this.http.post(`${this.uri}/template`, tempalte);
 
   }
-  completeInfo(uname, emai, addre, pho) {
+  completeInfo(uname, dname,emai, addre, pho) {
       const user = {
          username: uname,
+         domainName: dname,
          email: emai,
          address: addre,
          phone: pho

@@ -5,6 +5,7 @@ import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule,
    MatSelectModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule,
     MatDividerModule, MatSnackBarModule, MatMenuModule } from '@angular/material';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import { CookieService } from 'ngx-cookie-service';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,21 +27,21 @@ import {ResumeTemplate3Component} from './components/resume/template3/template3.
 import { StyleComponent } from './components/setup/style/style.component';
 import { InfoComponent } from './components/setup/info/info.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
+import {FilterComponent} from './components/filter/filter.component';
 
  // reflect urls to components
 const routes: Routes = [
+
   { path: 'login', component: LoginComponent},
-  {path: 'index', component : IndexComponent},
   {path: 'dashboardTest', component : DashboardComponent},
-  {path: 'template1', component: Template1Component},
-  {path: 'template2', component: Template2Component},
-  {path: 'resume', component: ResumeTemplate3Component},
+  {path: 'home1', component: Template1Component},
+  {path: 'home2', component: Template2Component},
+  {path: 'resume', component: ResumeTemplate1Component},
   {path: 'init_style', component: StyleComponent},
   {path: 'init_info/:id', component: InfoComponent},
 
-
-  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: '**', component: FilterComponent},
+  // { path: '', redirectTo: 'home1', pathMatch: 'full'},
 ];
 
 @NgModule({
@@ -58,7 +59,7 @@ const routes: Routes = [
     StyleComponent,
     InfoComponent,
     DashboardComponent,
-
+    FilterComponent
    ],
   imports: [
     BrowserModule,
@@ -79,9 +80,11 @@ const routes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+
+
   ],
-  providers: [UserService],
+  providers: [UserService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

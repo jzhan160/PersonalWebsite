@@ -33,9 +33,9 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-      <input matInput placeholder="Username" formControlName="username" #usernameForReg>
+      <input matInput placeholder="Email" formControlName="email" #emailForReg>
       <input matInput placeholder="Password" formControlName="password" #passwordForReg>
-      <button type="submit" (click)=" register(usernameForReg.value,passwordForReg.value)" [disabled]="registerForm.pristine || registerForm.invalid" >Sign Up</button>
+      <button type="submit" (click)=" register(emailForReg.value,passwordForReg.value)" [disabled]="registerForm.pristine || registerForm.invalid" >Sign Up</button>
 
 		</form>
   </div>
@@ -49,10 +49,10 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
-      <input matInput placeholder="Username" formControlName="username" #username>
+      <input matInput placeholder="Email" formControlName="email" #email>
       <input matInput placeholder="Password" formControlName="password" #password>
 			<a href="#">Forgot your password?</a>
-      <button type="submit" (click)=" login(username.value,password.value)" [disabled]="loginForm.pristine || loginForm.invalid" >Sign In</button>
+      <button type="submit" (click)=" login(email.value,password.value)" [disabled]="loginForm.pristine || loginForm.invalid" >Sign In</button>
 		</form>
   </div>
 

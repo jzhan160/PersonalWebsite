@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-template1',
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Template1Component implements OnInit {
 
-  constructor() {
+  constructor(private cookieService: CookieService) {
 
+    const type= this.cookieService.get("templateId");
+    console.log(type);
   }
 
   ngOnInit() {
 
   }
+
+
 
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../entity/user/user.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -12,24 +13,39 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   registerForm: FormGroup;
-  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
+  constructor(private userService: UserService, private fb: FormBuilder, private router: Router,private cookieService: CookieService) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
     this.registerForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  login(username, password) {
-     this.userService.userLogin(username, password).subscribe(() => {
-      this.router.navigate(['/index']);
-    });
+  login(email, password) {
+     this.userService.userLogin(email, password).subscribe(
+       val => {
+         var templateId = val['templateId'];
+        this.cookieService.set('templateId', templateId);
+        const homeURL = '/home' +templateId;
+         this.router.navigate([homeURL]);
+        },
+        error =>{
+             console.log(error);
+             console.log(error.status);
+             if (error.status === 401) {
+               console.log('username or password error!');
+             }
+           },
+    //   () => {
+    //     this.router.navigate(['/index']);
+    //  }
+    );
   }
-  register(username, password) {
-     this.userService.userRegister(username, password).subscribe(() => {
+  register(email, password) {
+     this.userService.userRegister(email, password).subscribe(() => {
       this.router.navigate(['init_style']);
     });
   }

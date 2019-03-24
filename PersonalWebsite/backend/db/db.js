@@ -20,7 +20,7 @@ function connect(callback) {
 exports.find = function (collection_name, json, callback) {
     connect(function (db) {
         var result = db.collection(collection_name).find(json);
-        result.toArray(function (error, data) {
+         result.toArray(function (error, data) {
             callback(error, data)
         });
         db.close();

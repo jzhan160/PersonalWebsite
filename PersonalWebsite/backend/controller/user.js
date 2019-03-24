@@ -9,30 +9,29 @@ router.use(bodyParser.json());
 var DB = require("../db/db.js");
 
 router.post("/do_register", function(req, res) {
-  var username = req.body.username;
+  var email = req.body.email;
   var password = md5(req.body.password);
   DB.find(
     "users",
     {
-      username: username
+      email: email
     },
     function(error, data) {
       if (error) {
         console.log(error);
       }
       if (data.length > 0) {
-        res.end(
-          "<script>alert('Account exited.'); location.href = '/register'</script>"
-        );
+        res.status(400).json({ user: "Email existed" });
+
       } else {
         DB.insert(
           "users",
           {
-            username: username,
+            email: email,
             password: password
           },
           function(err, data) {
-            req.session.username = req.body.username;
+            req.session.email = req.body.email;
             res.status(200).json({ user: "Added successfully" });
           }
         );
@@ -41,13 +40,41 @@ router.post("/do_register", function(req, res) {
   );
 });
 
+router.post("/login",function(req,res){
+  res.status(401).json({ user: "unauthorizied" });
+
+});
+
+router.post("/searchDomainName", function(req, res) {
+  var domainName = req.body.domainName;
+   DB.find(
+    "users",
+    {
+      domainName: domainName,
+     },
+    function(error, data) {
+      if (error) {
+        console.log(error);
+      }
+      if (data.length > 0) {
+        //data is a json array!
+         //console.log(data[0].email);
+         res.status(200).json({ user: "Find domain name" , email: data[0].email, templateId: data[0].templateId});
+      } else {
+        res.status(404).json({ user: "No domain name" });
+      }
+    }
+  );
+});
+
+
 router.post("/do_login", function(req, res) {
-  var username = req.body.username;
+  var email = req.body.email;
   var password = md5(req.body.password);
   DB.find(
     "users",
     {
-      username: username,
+      email: email,
       password: password
     },
     function(error, data) {
@@ -56,12 +83,10 @@ router.post("/do_login", function(req, res) {
       }
       if (data.length > 0) {
         console.log(data);
-        req.session.username = req.body.username;
-        res.status(200).json({ user: "Login successfully" });
+        req.session.email = req.body.email;
+        res.status(200).json({ user: "Login successfully" ,templateId:"1" });
       } else {
-        res.end(
-          "<script>alert('please login.'); location.href = '/login'</script>"
-        );
+        res.status(401).json({ user: "unauthorizied" });
       }
     }
   );

@@ -9,12 +9,13 @@ import { UserService } from '../../../entity/user/user.service';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
-  private infoForm: FormGroup;
-  private imageForm: FormGroup;
+   infoForm: FormGroup;
+   imageForm: FormGroup;
   private templateId: number;
   constructor(private userService: UserService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder,) {
     this.infoForm = this.fb.group({
       username: [''],
+      domainName: [''],
       email: [''],
       address: [''],
       phone: ['']
@@ -35,8 +36,8 @@ export class InfoComponent implements OnInit {
      });
   }
 
-  setupFinish(username,email,address,phone) {
-    this.userService.completeInfo(username,email,address,phone).subscribe(()=>{
+  setupFinish(username,domainName, email,address,phone) {
+    this.userService.completeInfo(username,domainName,email,address,phone).subscribe(()=>{
        this.router.navigate(['/index']);
     });
   }
