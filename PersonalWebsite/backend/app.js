@@ -44,7 +44,10 @@ var repo = require("./controller/repo");
 var story = require("./controller/story");
 var dashboard = require("./controller/dashboard");
 var file = require("./controller/file");
+var webStats = require("./controller/webStats");
+
 app.use("/", user);
+//app.use("/webStats",webStats);
 app.use("/resume", resume);
 app.use("/repo", repo);
 app.use("/story", story);

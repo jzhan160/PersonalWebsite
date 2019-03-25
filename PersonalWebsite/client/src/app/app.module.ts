@@ -25,16 +25,27 @@ import { Template2Component } from './components/homepage/template2/template2.co
 import {ResumeTemplate1Component} from './components/resume/template1/template1.component';
 import {ResumeTemplate2Component} from './components/resume/template2/template2.component';
 import {ResumeTemplate3Component} from './components/resume/template3/template3.component';
+import {WebStatsService} from './entity/webStats/web-stats.service';
+
 
 import { StyleComponent } from './components/setup/style/style.component';
 import { InfoComponent } from './components/setup/info/info.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FilterComponent} from './components/filter/filter.component';
+import { HistoryComponent } from './components/history/history.component';
+
+import { NgxEchartsModule } from 'ngx-echarts';
+import { CreateStoryComponent } from './components/create-story/create-story.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ResumeComponent } from './components/resume/resume.component';
+import { ManageRepoComponent } from './components/manage-repo/manage-repo.component';
+
   // reflect urls to components
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent},
   {path: 'dashboardTest', component : DashboardComponent},
+  {path: 'htest', component : HistoryComponent},
   {path: 'home1', component: Template1Component},
   {path: 'home2', component: Template2Component},
   {path: 'resume1', component: ResumeTemplate1Component},
@@ -42,7 +53,7 @@ const routes: Routes = [
   {path: 'init_style', component: StyleComponent},
   {path: 'init_info/:id', component: InfoComponent},
  // { path: '**', loadChildren: 'FilterModule' },
-
+ {path: 'dashboard/createStory', component: CreateStoryComponent},
   { path: '**', component: FilterComponent},
   // { path: '', redirectTo: 'home1', pathMatch: 'full'},
 ];
@@ -63,10 +74,16 @@ const routes: Routes = [
     InfoComponent,
     DashboardComponent,
     FilterComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    HistoryComponent,
+    CreateStoryComponent,
+    ProfileComponent,
+    ResumeComponent,
+    ManageRepoComponent
    ],
   imports: [
     BrowserModule,
+    NgxEchartsModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
     MatToolbarModule,
@@ -88,7 +105,7 @@ const routes: Routes = [
     BsDropdownModule.forRoot(),
 
   ],
-  providers: [UserService,CookieService],
+  providers: [UserService,CookieService,WebStatsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
