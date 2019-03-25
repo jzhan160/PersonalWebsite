@@ -13,19 +13,19 @@
         <li>
           <div class="tool-add-image">
             <i class="fas fa-desktop"></i>
-            <a href="#">View Site</a>
+            <a>View Site</a>
           </div>
         </li>
         <li>
           <div class="tool-change-background">
             <i class="fas fa-history"></i>
-            <a href="">Stats</a>
+            <a (click) = "onStats()" >Stats</a>
           </div>
         </li>
         <li>
           <div class="tool-change-background">
             <i class="fas fa-file"></i>
-            <a href="">Profile</a>
+            <a >Profile</a>
           </div>
         </li>
       </ul>
@@ -40,19 +40,19 @@
         <li>
           <div class="tool-add-image">
             <i class="fa fa-camera-retro"></i>
-            <a href="#">Add Story</a>
+            <a (click) = "onAddStory()" >Add Story</a>
           </div>
         </li>
         <li>
           <div class="tool-change-background">
               <i class="fas fa-id-card"></i>
-            <a href="">Resume</a>
+            <a >Resume</a>
           </div>
         </li>
         <li>
           <div class="tool-change-background">
               <i class="fas fa-folder-open"></i>
-            <a href="">Manage Repo</a>
+            <a >Manage Repo</a>
           </div>
         </li>
       </ul>
@@ -60,3 +60,5 @@
 
   </div>
 </div>
+<app-history *ngIf="showNum == 0"></app-history>
+<app-create-story *ngIf="showNum == 1"></app-create-story>

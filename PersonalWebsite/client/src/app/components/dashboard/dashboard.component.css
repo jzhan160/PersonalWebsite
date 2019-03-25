@@ -8,14 +8,13 @@ html, body{
   overflow: hidden;
 }
 #toolbar{
-  float: left;
   width: 220px;
-  height: 100%;
-  background-color: #3D3D3D;
+  height: 900px;
+  background-color: rgb(139, 135, 135);
   display: block;
+  Float:left;
   padding-top: 15px;
     transition: .1s;
-  box-shadow: 1px 0px 4px #212424;
 
 }
 #toolbar .wrapper .first{

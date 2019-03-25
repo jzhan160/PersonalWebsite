@@ -1,0 +1,10 @@
+.container{
+    width: 500px;
+    height: 500px;
+    float: left;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+.chartTittle{
+    margin-left: 50px;
+}
