@@ -38,10 +38,10 @@ exports.insert = function (collection_name, json, callback) {
 }
 
 
-exports.update = function (collection_name, newDoc, condition, callback) {
+exports.update = function (collection_name, condition,newDoc,callback) {
     connect(function (db) {
-        db.collection(collection_name).updateOne(newDoc, { $set: condition }, function (error, data) {
-            callback(error, data)
+        db.collection(collection_name).updateOne(condition, { $set: newDoc }, function (error, data) {
+             callback(error, data)
         });
         db.close();
     })

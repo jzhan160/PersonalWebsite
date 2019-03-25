@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
      this.userService.userLogin(email, password).subscribe(
        val => {
          var templateId = val['templateId'];
+         var session = val['session'];
         this.cookieService.set('templateId', templateId);
+        this.cookieService.set('domain',session);
+        this.cookieService.set('user','admin');
         const homeURL = '/home' +templateId;
          this.router.navigate([homeURL]);
         },
@@ -39,15 +42,18 @@ export class LoginComponent implements OnInit {
                console.log('username or password error!');
              }
            },
-    //   () => {
-    //     this.router.navigate(['/index']);
-    //  }
     );
   }
   register(email, password) {
-     this.userService.userRegister(email, password).subscribe(() => {
-      this.router.navigate(['init_style']);
-    });
+     this.userService.userRegister(email, password).subscribe(
+      val => {
+        this.cookieService.set('email',email);
+        this.router.navigate(['init_style']);
+       },
+      error =>{
+        console.log(error);
+      }
+    );
   }
 
   ngOnInit() {

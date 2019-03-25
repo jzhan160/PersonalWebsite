@@ -43,11 +43,13 @@ var resume = require("./controller/resume");
 var repo = require("./controller/repo");
 var story = require("./controller/story");
 var dashboard = require("./controller/dashboard");
-
+var file = require("./controller/file");
 app.use("/", user);
 app.use("/resume", resume);
 app.use("/repo", repo);
 app.use("/story", story);
 app.use("/dashboard", dashboard);
-
-app.listen(8080, "localhost");
+app.use("/file",file);
+app.listen(8080, "localhost",function () {
+  console.log('Node.js server is running on port 8080');
+});

@@ -7,9 +7,11 @@ import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule,
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { CookieService } from 'ngx-cookie-service';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FileSelectDirective } from 'ng2-file-upload';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,8 +30,7 @@ import { StyleComponent } from './components/setup/style/style.component';
 import { InfoComponent } from './components/setup/info/info.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FilterComponent} from './components/filter/filter.component';
-
- // reflect urls to components
+  // reflect urls to components
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path: 'resume', component: ResumeTemplate1Component},
   {path: 'init_style', component: StyleComponent},
   {path: 'init_info/:id', component: InfoComponent},
+ // { path: '**', loadChildren: 'FilterModule' },
 
   { path: '**', component: FilterComponent},
   // { path: '', redirectTo: 'home1', pathMatch: 'full'},
@@ -59,13 +61,15 @@ const routes: Routes = [
     StyleComponent,
     InfoComponent,
     DashboardComponent,
-    FilterComponent
+    FilterComponent,
+    FileSelectDirective
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
     MatToolbarModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatOptionModule,
@@ -81,7 +85,6 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatMenuModule,
     BsDropdownModule.forRoot(),
-
 
   ],
   providers: [UserService,CookieService],
