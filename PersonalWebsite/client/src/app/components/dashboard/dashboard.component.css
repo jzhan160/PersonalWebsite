@@ -20,7 +20,7 @@ html, body{
 }
 #toolbar .wrapper .first{
   width: 100%;
-  background-color: #3F4545;
+  background-color: #666666;
   margin: 0 auto;
 }
 #toolbar .wrapper  h2{
@@ -39,7 +39,6 @@ html, body{
   border-bottom: #313636 solid 1px;
 }
 #toolbar .wrapper .first ul li:hover{
-  background-color: #363B3B;
   transition: .3s;
    text-indent:5px;
 } 
@@ -124,4 +123,7 @@ i{
 }
 #toolbar .wrapper a.new-card.activated{
   opacity: .2;
+}
+#subtitle{
+  margin-left: 10px;
 }
