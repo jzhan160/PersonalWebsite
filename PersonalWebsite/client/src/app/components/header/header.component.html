@@ -1,5 +1,7 @@
 <mat-toolbar color="primary">
-    Personal Website
-    <button id="logout-btn" class="ghost">Logout</button>
-
-  </mat-toolbar>
+  Personal Website
+  <button id="btn" class="ghost">
+    <div *ngIf="user == 'admin'">Logout</div>
+    <div *ngIf="user != 'admin'">Login</div>
+  </button>
+</mat-toolbar>

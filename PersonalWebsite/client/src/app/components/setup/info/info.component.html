@@ -1,9 +1,11 @@
+<app-header></app-header>
+
 <div class="heading" id="heading">
     <h1 class="heading-title">
-        <span id="title-1">Review and edit your info</span><br /><br />
+        <span id="title-1">Complete your info</span><br /><br />
       </h1>
     <hr />
-</div>
+ </div>
 <div class="container">
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3">
     <form
@@ -15,29 +17,33 @@
     >
       <div class="form-group">
           <label class="form-label" for="logo">Logo</label>
+         <!-- <div class="profile"> -->
+         <!-- style="background-image:url(https://s-media-cache-ak0.pinimg.com/236x/07/1f/4e/071f4ee04c2f2eda7e0bc9b6196f4751.jpg)" -->
+          <!-- <label class="edit"> -->
+            <img class = "photo" height="100px" width="100px" [src]="_d.bypassSecurityTrustUrl(imgsrc)">
 
-        <div
-          class="profile"
-          style="background-image:url(https://s-media-cache-ak0.pinimg.com/236x/07/1f/4e/071f4ee04c2f2eda7e0bc9b6196f4751.jpg)"
-        >
-          <label class="edit">
-            <span>Logo</span>
-            <input type="file" multiple />
-          </label>
+            <input class = "select_photo" type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="fileChange($event)"/>
+            <!-- <button type="button" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length" >
+                Upload an Image
+          </button> -->
+            <!-- <input type="file" multiple /> -->
+          <!-- </label> -->
         </div>
-      </div>
+      <!-- </div> -->
       <div class="form-group">
-        <label class="form-label" for="domain-name">domainName</label>
+        <label class="form-label" for="domain-name">Domain name</label>
         <input matInput  class="form-control" placeholder="Define your domain name" formControlName="domainName" #domainName>
       </div>
       <div class="form-group">
         <label class="form-label" for="name">Name</label>
         <input matInput  class="form-control" placeholder="Your name" formControlName="username" #username>
       </div>
-      <div class="form-group">
+      <!-- to be continued -->
+      <!-- <div class="form-group">
         <label class="form-label" for="email">Email</label>
-        <input matInput  class="form-control" placeholder="" formControlName="email" #email>
-      </div>
+        <input matInput  class="form-control"  name="email" ngModel #email = "ngModel" [ngModelOptions]="{standalone: true}">
+
+      </div> -->
       <div class="form-group">
         <label class="form-label" for="address">Address</label>
         <input matInput  class="form-control" placeholder="Enter your address" formControlName="address" #address>
@@ -47,8 +53,10 @@
         <input matInput  class="form-control" placeholder="Enter your phone number" formControlName="phone" #phone>
       </div>
       <div class="text-center">
-        <button type="submit" (click)=" setupFinish(username.value,email.value,address.value,phone.value)" class="btn btn-start-order">Next</button>
+        <button type="submit" (click)=" setupFinish(domainName.val,username.value,address.value,phone.value)"
+        [disabled]="!uploader.getNotUploadedItems().length" class="btn btn-start-order">Next</button>
       </div>
     </form>
+
   </div>
 </div>

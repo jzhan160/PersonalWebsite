@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpResponse } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -7,7 +9,7 @@ export class UserService {
 
   uri = 'http://localhost:8080';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   // getUser() {
   //   return this.http.get(`${this.uri}/issues`);
@@ -42,24 +44,28 @@ export class UserService {
   }
 
   userLogout(){
+    this.cookieService.set('user','visitor');
     return this.http.get(`${this.uri}/logout`);
   }
 
-  selectTemplate(tId){
-    const tempalte = {
-      templateId: tId
-     };
-    // // return this.http.post(`${this.uri}/set_up`, tempalte);
-    return this.http.post(`${this.uri}/template`, tempalte);
+  // selectTemplate(tId){
+  //   const tempalte = {
+  //     templateId: tId
+  //    };
+  //   // // return this.http.post(`${this.uri}/set_up`, tempalte);
+  //   return this.http.post(`${this.uri}/template`, tempalte);
 
-  }
-  completeInfo(uname, dname,emai, addre, pho) {
+  // }
+  completeInfo(uname, dname, addre, pho, pth, fname,tId,emai) {
       const user = {
          username: uname,
          domainName: dname,
-         email: emai,
          address: addre,
-         phone: pho
+         phone: pho,
+         path: pth,
+         filename: fname,
+         templateId: tId,
+         email: emai
       };
       return this.http.post(`${this.uri}/submit_info`, user);
 

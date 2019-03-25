@@ -1,4 +1,5 @@
 @import "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 .heading {
   text-align: center;
@@ -23,22 +24,46 @@ body {
   margin:1em;
   background-color: #1e384c;
 }
-
-.profile {
+.photo{
   position: absolute;
-  top: -13%;
+  top: -20%;
+  left: 40%;
+  right: 0%;
+  width:100px;
+  height:100px;
+  border-radius:100%;
+  overflow:hidden;
+  padding:0;
+  position:absolute;
+}
+.select_photo{
+  position: absolute;
+  top: -20%;
+  left: 40%;
+  right: 0%;
+  opacity:0;
+  height:100px;
+  width:100px;
+  border-radius:100%;
+  overflow:hidden;
+  padding:0;
+  position:absolute;
+}
+/* .profile {
+  position: absolute;
+  top: -20%;
   left: 40%;
   right: 0%;
   background-size:cover;
   background-position:center;
   width:100px;
   height:100px;
-  border-radius:50%;
+   border-radius:100%;
   overflow:hidden;
   padding:0;
   position:absolute;
-}
-  .profile:hover .edit, .delete {
+} */
+  /* .profile:hover .edit, .delete {
       opacity:0.5;
   }
   .profile .edit, .delete {
@@ -78,15 +103,15 @@ body {
     bottom:0;
     background-color:rgba(250,150,175,0.8);
   }
+ */
 
-.instructions{
-    color: #c2eafe;
-    position:absolute;
-    top: 80%;
-    left: 40%;
-    opacity: 0.2;
+ .instructions{
+  color: #c2eafe;
+  position:absolute;
+  top: 80%;
+  left: 40%;
+  opacity: 0.2;
 }
-
 
 .container{
    margin-top: 100px;
@@ -105,7 +130,9 @@ body {
 	border-color: #ccc;
    	border-width: 0 0 2px 0;
    	border-style: none none solid none;
-   	box-shadow: none;
+     box-shadow: none;
+     font-size:1em;
+
 }
 .form-control:focus {
 	box-shadow: none;
