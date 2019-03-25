@@ -68,18 +68,13 @@ export class InfoComponent implements OnInit {
       //console.log("ImageUpload:uploaded:", item, status, response);
       //  {"success":true,"path":"uploads\\public\\photo-1553522180374..jpg","filename":"photo-1553522180374..jpg"}
       let entry = response.substring(0, response.length - 1).split(",");
-      console.log(entry[0]);
-      console.log(entry[1]);
-      console.log(entry[2]);
       let pathPair = entry[1].split(":");
       let filenamePair = entry[2].split(":");
       this.path = pathPair[1].substring(1, pathPair[1].length - 1);
       this.filename = filenamePair[1].substring(1, filenamePair[1].length - 1);
-      console.log("receive path: "+this.path);
-      console.log("receive filename: "+this.filename);
-
-      this.userService
-      .completeInfo(
+    //  console.log("receive path: "+this.path);
+     // console.log("receive filename: "+this.filename);
+      this.userService.completeInfo(
         this.username,
         this.domainName,
         this.address,
@@ -89,13 +84,15 @@ export class InfoComponent implements OnInit {
         this.templateId,
         this.cookieService.get('email')
         ).subscribe(() => {
-        this.cookieService.set("domain", this.domainName);
+        this.cookieService.set("domainSource", this.domainName);
+        this.cookieService.set("domainDest", this.domainName);
+        this.cookieService.set("email",null);
         this.router.navigate(["/" + this.domainName]);
       });
      };
   }
 
-  setupFinish(username, domainName, address, phone) {
+  setupFinish(domainName, username, address, phone) {
     this.username = username;
     this.domainName = domainName;
     this.address = address;

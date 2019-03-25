@@ -53,7 +53,7 @@
         <input matInput  class="form-control" placeholder="Enter your phone number" formControlName="phone" #phone>
       </div>
       <div class="text-center">
-        <button type="submit" (click)=" setupFinish(domainName.val,username.value,address.value,phone.value)"
+        <button type="submit" (click)=" setupFinish(domainName.value,username.value,address.value,phone.value)"
         [disabled]="!uploader.getNotUploadedItems().length" class="btn btn-start-order">Next</button>
       </div>
     </form>

@@ -28,28 +28,20 @@ export class FilterComponent implements OnInit {
     console.log(url);
     let arr = url.split("/");
     let domainName = arr[3];
+    console.log(domainName);
     this.userService.searchDomainName(domainName).subscribe(
       val => {
         var templateId = val["templateId"];
-        if (this.cookieService.get('domain') === domainName) {
-          this.cookieService.set('user','admin');
-        } else {
-          this.cookieService.set('user', 'visitor');
-        }
+        this.cookieService.set('domainDest', domainName);
         const homeURL = "/home" + templateId;
         this.router.navigate([homeURL]);
       },
       error => {
-        console.log(error);
-        console.log(error.status);
-        if (error.status === 404) {
+         if (error.status === 404) {
           console.log("No domain name");
           this.router.navigate(["login"]);
         }
       }
-      //   () => {
-      //     this.router.navigate(['/index']);
-      //  }
     );
   }
 }

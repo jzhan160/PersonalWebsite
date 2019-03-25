@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private cookieService: CookieService
   ) {
-    if (cookieService.get("user") === "admin") {
+    if (cookieService.get("domainSource") === cookieService.get("domainDest")) {
       this.user = "admin";
     } else {
       this.user = "visitor";

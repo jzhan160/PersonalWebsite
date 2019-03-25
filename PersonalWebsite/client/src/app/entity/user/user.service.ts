@@ -23,7 +23,7 @@ export class UserService {
     const domain = {
       domainName: dname
      };
-     return this.http.post(`${this.uri}/searchDomainName`, domain);
+    return this.http.post(`${this.uri}/searchDomainName`, domain);
   }
 
   userLogin(emai, pwd) {
@@ -68,6 +68,6 @@ export class UserService {
          email: emai
       };
       return this.http.post(`${this.uri}/submit_info`, user);
-
   }
+
 }

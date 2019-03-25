@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { UserService } from '../../../entity/user/user.service';
 
 @Component({
   selector: 'app-template1',
@@ -7,18 +8,25 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./template1.component.css']
 })
 export class Template1Component implements OnInit {
-  user: string;
+  domainName: string;
+  username: string;
   text: string;
-  constructor(private cookieService: CookieService) {
-
-    //const type = this.cookieService.get('templateId');
-   // console.log(cookieService.get('user'));
-
+  constructor(private cookieService: CookieService, private  userService: UserService) {
   }
 
   ngOnInit() {
-      this.text= "this is a etxt for test";
-  }
+        this.domainName = this.cookieService.get('domainDest');
+        this.userService.searchDomainName(this.domainName).subscribe(
+          val => {
+            this.username = val['username'];
+           },
+          error => {
+             if (error.status === 404) {
+              console.log("No domain name");
+             }
+          }
+        );
+   }
 
 
 

@@ -45,6 +45,7 @@ router.post("/login", function(req, res) {
 
 router.post("/searchDomainName", function(req, res) {
   var domainName = req.body.domainName;
+  console.log("To find domain: "+ domainName);
   DB.find(
     "users",
     {
@@ -56,10 +57,12 @@ router.post("/searchDomainName", function(req, res) {
       }
       if (data.length > 0) {
         //data is a json array!
-        //console.log(data[0].email);
+        console.log("RES: "+data[0]);
         res.status(200).json({
           user: "Find domain name",
-          templateId: data[0].templateId
+          templateId: data[0].templateId,
+          username: data[0].username,
+
         });
       } else {
         res.status(404).json({ user: "No domain name" });
@@ -88,7 +91,7 @@ router.post("/do_login", function(req, res) {
           .json({
             user: "Login successfully",
             templateId: "1",
-            session: req.session.domainName
+            session: req.session.domain
           });
       } else {
         res.status(401).json({ user: "unauthorizied" });
@@ -168,4 +171,8 @@ function moveFile(originalPath, filename, domainName) {
     });
   });
 }
+
+
+ 
+
 module.exports = router;

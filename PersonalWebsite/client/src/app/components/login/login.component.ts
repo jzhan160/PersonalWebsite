@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
          var templateId = val['templateId'];
          var session = val['session'];
         this.cookieService.set('templateId', templateId);
-        this.cookieService.set('domain',session);
-        this.cookieService.set('user','admin');
+        this.cookieService.set('domainSource',session);
+        this.cookieService.set('domainDest',session);
         const homeURL = '/home' +templateId;
          this.router.navigate([homeURL]);
         },
