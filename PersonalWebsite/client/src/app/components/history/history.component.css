@@ -1,9 +1,9 @@
 .container{
-    width: 500px;
-    height: 500px;
-    float: left;
-    margin-left: 100px;
-    margin-top: 10px;
+    margin-top: 50px;
+    margin-left:30%;
+    margin-right:70%;
+    width:500px;
+    height:900px;
 }
 .chartTittle{
     margin-left: 50px;
