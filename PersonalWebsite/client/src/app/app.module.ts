@@ -26,6 +26,7 @@ import {ResumeTemplate1Component} from './components/resume/template1/template1.
 import {ResumeTemplate2Component} from './components/resume/template2/template2.component';
 import {ResumeTemplate3Component} from './components/resume/template3/template3.component';
 import {WebStatsService} from './entity/webStats/web-stats.service';
+import {DisplayStoryComponent} from './components/display-story/display-story.component';
 
 
 import { StyleComponent } from './components/setup/style/style.component';
@@ -34,11 +35,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FilterComponent} from './components/filter/filter.component';
 import { HistoryComponent } from './components/history/history.component';
 
+import {StoryService} from './entity/story/story.service'
 import { NgxEchartsModule } from 'ngx-echarts';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { ManageRepoComponent } from './components/manage-repo/manage-repo.component';
+import { DisplayStoryComponent } from './components/display-story/display-story.component';
 
   // reflect urls to components
 const routes: Routes = [
@@ -79,7 +82,8 @@ const routes: Routes = [
     CreateStoryComponent,
     ProfileComponent,
     ResumeComponent,
-    ManageRepoComponent
+    ManageRepoComponent,
+    DisplayStoryComponent
    ],
   imports: [
     BrowserModule,
@@ -105,7 +109,7 @@ const routes: Routes = [
     BsDropdownModule.forRoot(),
 
   ],
-  providers: [UserService,CookieService,WebStatsService],
+  providers: [UserService,CookieService,WebStatsService,StoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

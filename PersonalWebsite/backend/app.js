@@ -48,6 +48,7 @@ var webStats = require("./controller/webStats");
 
 app.use("/", user);
 //app.use("/webStats",webStats);
+app.use("/story", story);
 app.use("/resume", resume);
 app.use("/repo", repo);
 app.use("/story", story);

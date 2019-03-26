@@ -2,17 +2,17 @@
     <div class="container">
       <div class="row">
 
-      <h2>Add New Post</h2>
+      <h2>Add New Story</h2>
       
-      <form name="postForm" ng-submit=" blog.addPost()" novalidate>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
               <h4>Title</h4>
-              <input type="text" ng-model="blog.post.title"/>
+              <input  name="title" ngModel/>
               <h4>Body</h4>
-              <textarea ng-model="blog.post.body" ng-list="/\n/" rows="10"></textarea>
+              <textarea  name="content" rows = "10" ngModel ></textarea>
               <h4>Featured Image URL</h4>
-              <input type="text" ng-model="blog.post.image" placeholder="http://" />
+              <input name="imgUrl" type="text" placeholder="http://" ngModel/>
               <br>
-              <input type="submit" value="Submit" />
+              <button>Submit</button>
            </form>
       
         </div>
