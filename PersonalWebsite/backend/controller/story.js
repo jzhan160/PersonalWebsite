@@ -39,11 +39,27 @@ var DB = require('../db/db.js');
 
 
 router.post('/add', function (req, res) {
-    console.log(1);
     const story = req.body;
-    DB.insert('storys', story, function (err, data) {
-        res.status(200).send("Added successfully");
+    DB.insert('story', story, function (err, data) {
+        res.status(200).json("msg: Added successfully!");
     })
-})
+});
+
+router.post('/get', function(req,res){
+    console.log(1);
+    const domain = req.body.domain;
+    console.log(domain);
+    DB.find('story',{
+        domain: domain
+    }, function(error, data){
+        if(error){
+            console.log(err);
+        }else{
+            console.log(data);
+            res.status(200).json(data);
+        }
+    })
+});
+
 
 module.exports = router

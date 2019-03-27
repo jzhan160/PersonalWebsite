@@ -26,7 +26,7 @@ import {ResumeTemplate1Component} from './components/resume/template1/template1.
 import {ResumeTemplate2Component} from './components/resume/template2/template2.component';
 import {ResumeTemplate3Component} from './components/resume/template3/template3.component';
 import {WebStatsService} from './entity/webStats/web-stats.service';
-import {DisplayStoryComponent} from './components/display-story/display-story.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 import { StyleComponent } from './components/setup/style/style.component';
@@ -86,6 +86,7 @@ const routes: Routes = [
     DisplayStoryComponent
    ],
   imports: [
+    MatExpansionModule,
     BrowserModule,
     NgxEchartsModule,
     AppRoutingModule,

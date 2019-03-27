@@ -1,19 +1,45 @@
 <div class="container">
   <h4> Recent Stories</h4>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Shiba Inu</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-      </p>
-      <img width="70px" height="70px" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    </mat-card-content>
+
+  <mat-expansion-panel style="width: 600px;">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Shiba Inu
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+     
+    </mat-expansion-panel-header>
+    <p >
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
+      very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+    </p>
+    <img width="70px" height="70px" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <br>
     <mat-card-actions>
       <button mat-button>12 LIKEs</button>
       <button mat-button>Comments</button>
+      <button mat-button>Edit</button>
     </mat-card-actions>
-  </mat-card>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel *ngFor="let s of stories" class="example-card" style="width: 600px;">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{s.title}}
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+     
+    </mat-expansion-panel-header>
+    <p>
+      {{s.content}}
+    </p>
+    <mat-card-actions>
+      <button mat-button>12 LIKEs</button>
+      <button mat-button>Comments</button>
+      <button mat-button>Edit</button>
+    </mat-card-actions>
+  </mat-expansion-panel>
+
 </div>

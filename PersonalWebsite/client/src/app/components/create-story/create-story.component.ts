@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter,Output } from '@angular/core';
 import { StoryService } from '../../entity/story/story.service';
 import {NgForm} from '@angular/forms';
 
@@ -9,6 +9,7 @@ import {NgForm} from '@angular/forms';
 })
 export class CreateStoryComponent implements OnInit {
 
+  @Output() storyCreated = new EventEmitter();
   constructor(private storyService: StoryService) { }
 
   ngOnInit() {
@@ -17,12 +18,13 @@ export class CreateStoryComponent implements OnInit {
   onSubmit(f: NgForm){
     this.storyService.addStory(f.value.title, f.value.content, f.value.imgUrl).subscribe(
       val => {
-        console.log(val);
+        alert(val);
+        f.reset();
+        this.storyCreated.emit();
       },
       error =>{
         console.log(error);
       }
     );
   }
-
 }

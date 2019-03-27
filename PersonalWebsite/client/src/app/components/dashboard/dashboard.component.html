@@ -61,5 +61,5 @@
   </div>
 </div>
 <app-history *ngIf="showNum == 0"></app-history>
-<app-create-story *ngIf="showNum == 1"></app-create-story>
-<app-display-story *ngIf="showNum == 1"></app-display-story>
+<app-create-story *ngIf="showNum == 1" (storyCreated)="onStoryCreated($event)"></app-create-story>
+<app-display-story *ngIf="showNum == 1" #childDisplayStory></app-display-story>

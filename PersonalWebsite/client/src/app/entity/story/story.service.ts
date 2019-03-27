@@ -12,12 +12,19 @@ export class StoryService {
 
   addStory(title, content, urlPath){
     const story = {
-      domain: this.cookieService.get('domainSource'),
+      domain: 'testDomain', //this.cookieService.get('domainSource'),
       title: title,
       content: content,
       urlPath: urlPath,
       createTime: (new Date).toString()
     }
     return this.http.post(`${this.uri}/add`, story);
+  }
+
+  getStoryList(){
+    const domain = {
+      domain: 'testDomain' //this.cookieService.get('domainSource'),
+    }
+    return this.http.post(`${this.uri}/get`, domain);
   }
 }
