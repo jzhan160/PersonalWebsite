@@ -1,30 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { Component, OnInit } from "@angular/core";
+import { ResumeService } from "../../../entity/resume/resume.service";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
-  selector: 'app-resume-template1',
-  templateUrl: './template1.component.html',
-  styleUrls: ['./template1.component.css']
+  selector: "app-resume-template1",
+  templateUrl: "./template1.component.html",
+  styleUrls: ["./template1.component.css"]
 })
 export class ResumeTemplate1Component implements OnInit {
-
-  constructor() { }
+  public education;
+  public experience;
+  public skill;
+  public username: string;
+  constructor(
+    private resumeService: ResumeService,
+    private cookieService: CookieService
+  ) {}
 
   ngOnInit() {
-    // $(function() {
-    //   $('a[href*="#"]:not([href="#"])').click(function() {
-    //     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-    //       var target = $(this.hash);
-    //       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    //       if (target.length) {
-    //         $('html, body').animate({
-    //           scrollTop: target.offset().top
-    //         }, 1000);
-    //         return false;
-    //       }
-    //     }
-    //   });
-    // });
+    // this.dname = this.cookieService.get("domainDest");
+    this.resumeService
+      .get(this.cookieService.get("domainDest"))
+      .subscribe(val => {
+        this.education = val["education"];
+        this.experience = val["experience"];
+        this.skill = val["skills"];
+         //  this.username = val['username'];
+      });
   }
-
 }

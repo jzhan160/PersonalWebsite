@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../../../entity/user/user.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-template1',
@@ -11,7 +12,7 @@ export class Template1Component implements OnInit {
   domainName: string;
   username: string;
   text: string;
-  constructor(private cookieService: CookieService, private  userService: UserService) {
+  constructor(private cookieService: CookieService, private  userService: UserService, private router: Router) {
   }
 
   ngOnInit() {
@@ -28,6 +29,9 @@ export class Template1Component implements OnInit {
         );
    }
 
+   resume(){
+       this.router.navigate(['/resume1']);
+   }
 
 
 

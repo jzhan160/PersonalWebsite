@@ -85,6 +85,7 @@ router.post("/do_login", function(req, res) {
         console.log(error);
       }
       if (data.length > 0) {
+        //console.log(data);
         req.session.domain = data[0].domainName;
         res
           .status(200)

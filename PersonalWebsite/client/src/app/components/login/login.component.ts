@@ -29,10 +29,10 @@ export class LoginComponent implements OnInit {
        val => {
          var templateId = val['templateId'];
          var session = val['session'];
-        this.cookieService.set('templateId', templateId);
-        this.cookieService.set('domainSource',session);
-        this.cookieService.set('domainDest',session);
-        const homeURL = '/home' +templateId;
+         this.cookieService.set('templateId', templateId);
+         this.cookieService.set('domainSource',session);
+         this.cookieService.set('domainDest',session);
+         const homeURL = '/home' +templateId;
          this.router.navigate([homeURL]);
         },
         error =>{

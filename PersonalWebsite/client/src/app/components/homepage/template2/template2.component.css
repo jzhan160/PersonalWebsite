@@ -1,72 +1,163 @@
-
+/* Google Fonts -  Titillium Web */
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,900,200,300,700);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css);
 body {
-	font-family: 'PT Sans Caption',"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	font-size: 3vh;
+  font-family: 'Titillium Web', sans-serif;
+  color: #000000;
 }
 
-
-#header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.navbar-default {
+  background: #ffffff;
+  border: none;
 }
 
-#logo {
-  text-decoration: none;
-  color: white;
-  font-size: 5vh;
-  font-weight: bold;
+.navbar-default ul li a {
+  cursor: pointer;
 }
 
-#menu-icon {
-  font-family: Geneva, sans-serif;
-  font-size: 6vh;
+.welcome, .profile, .resume, .portfolio, .contact {
+  padding-top: 50px;
 }
 
-
-.hero {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100vh;
-	padding: 1em;
-	box-sizing: border-box;
-	color: white;
-	background: url(https://images.unsplash.com/photo-1500417148159-68083bd7333a) center center no-repeat;
-	background-size: cover;
+.welcome {
+  padding-top: 100px !important;
+  padding-bottom: 20px;
 }
 
-.hero-title {
-	max-width: 16em;
-	margin: 0;
-	font-size: 12vh;
-	font-weight: bold;
-	line-height: .9;
+.welcome-content h1 {
+  font-weight: 900;
+  font-size: 56px;
 }
 
-	@media only screen and (min-width: 32em) { .hero-title { font-size: 16vh; } }
-
-.hero-footer {
-	display: flex;
-	margin-bottom: 1em;
+.welcome-content h2 {
+  font-weight: 700;
+  font-size: 26px;
 }
 
-.button {
-	padding: .5em .67em;
-	color: white;
-	text-decoration: none;
-	border: .1em solid white;
+.welcome-content p {
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.welcome-content p a {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #000000;
+}
+
+.social-button {
+  background-color: #e7e7e7;
+  border: 1px solid #696969;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.social-button i {
+  padding-right: 10px !important;
+}
+
+h3.head-bar {
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
+}
+
+h3.head-bar i {
+  padding-right: 10px;
+}
+
+.progress-bar {
+  background-color: #696969;
+}
+
+hr.hr-line1 {
+border: 0;
+height: 1px;
+background: #333;
+background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
+hr.hr-line2 {
+border: 0;
+height: 0;
+border-top: 1px solid rgba(0, 0, 0, 0.1);
+border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+article.education {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.education h1 {
+  font-weight: 700;
+  font-size: 20px;
 
 }
 
-	.button-primary {
-		color: black;
-		background-color: white;
-	}
-
-
-article {
-	max-width: 36em;
-	margin: 0 auto;
-	padding: 1em;
+.education small {
+  color: #696969;
+  font-size: 15px;
+  padding-left: 15px;
 }
+
+.education h2 {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.education h3 {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+article.work {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.work h1 {
+  font-weight: 700;
+  font-size: 20px;
+
+}
+
+.work small {
+  color: #696969;
+  font-size: 15px;
+  padding-left: 15px;
+}
+
+.work h2 {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.work h3 {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.work p {
+  padding-top: 10px;
+}
+
+.label {
+  font-weight: 300;
+  font-size: 12px;
+  padding: 2px 8px;
+}
+
+.thumbnail-button {
+  background-color: #696969;
+  border: 1px solid #efefef;
+}
+
+.contact {
+  background-color: #696969;
+}
+

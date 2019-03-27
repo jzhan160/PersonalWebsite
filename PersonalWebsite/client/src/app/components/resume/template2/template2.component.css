@@ -1,108 +1,163 @@
-* {
-  font-family:'Roboto',sans-serif;
-  	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+/* Google Fonts -  Titillium Web */
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,900,200,300,700);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css);
+body {
+  font-family: 'Titillium Web', sans-serif;
+  color: #000000;
 }
 
-#resHead {
-  text-align:center;
-  background-color:#383839;
-  color:#fff;
-  padding:5%;
+.navbar-default {
+  background: #ffffff;
+  border: none;
 }
 
-#resHead h3 {
-  color:#BABBBE;
-  font-size:17px;
+.navbar-default ul li a {
+  cursor: pointer;
 }
 
-#resHead h1 {
-  font-weight:bold;
-  font-size:35px;
+.welcome, .profile, .resume, .portfolio, .contact {
+  padding-top: 22px;
 }
 
-h1 {
-  margin-top:10px;
-   font-weight:bold;
-}
-#workExp, #skillEdu {
-  margin:20px 0px 5px 0px;
-  padding-left:40px;
-  padding-right:40px;
+.welcome {
+  padding-top: 50px !important;
+  padding-bottom: 10px;
 }
 
+.welcome-content h1 {
+  font-weight: 900;
+  font-size: 56px;
+}
+
+.welcome-content h2 {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.welcome-content p {
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.welcome-content p a {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #000000;
+}
+
+.social-button {
+  background-color: #e7e7e7;
+  border: 1px solid #696969;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.social-button i {
+  padding-right: 10px !important;
+}
+
+h3.head-bar {
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
+}
+
+h3.head-bar i {
+  padding-right: 10px;
+}
+
+.progress-bar {
+  background-color: #696969;
+}
+
+hr.hr-line1 {
+border: 0;
+height: 1px;
+background: #333;
+background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
+hr.hr-line2 {
+border: 0;
+height: 0;
+border-top: 1px solid rgba(0, 0, 0, 0.1);
+border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+article.education {
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.education h1 {
+  font-weight: 700;
+  font-size: 20px;
+
+}
+
+.education small {
+  color: #696969;
+  font-size: 15px;
+  padding-left: 15px;
+}
+
+.education h2 {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.education h3 {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+article.work {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.work h1 {
+  font-weight: 700;
+  font-size: 20px;
+
+}
+
+.work small {
+  color: #696969;
+  font-size: 15px;
+  padding-left: 15px;
+}
+
+.work h2 {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.work h3 {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.work p {
+  padding-top: 10px;
+}
+
+.label {
+  font-weight: 300;
+  font-size: 12px;
+  padding: 2px 8px;
+}
+
+.thumbnail-button {
+  background-color: #696969;
+  border: 1px solid #efefef;
+}
 
 .contact {
-  background-color:#383839;
-  color:#fff;
-  margin-top:30px;
+  background-color: #696969;
 }
 
-.contact .title, .contact .subtitle {
-  color:#fff;
-  text-align:center;
-}
-.contact .title {
-  margin-top:15px;
-  margin-bottom:15px;
-}
-
-.contact img {
-  margin: 0 auto;
-  padding:15px 15px 0px 15px;
-
-}
-
-.contact p {
-  margin-bottom:15px;
-  line-height:30px;
-}
-
-.heading {
-  font-size:28px;
-  padding-bottom:10px;
-  border-bottom:2px solid #636366;
-  margin-top:30px;
-}
-
-.title {
-  color:#383839;
-  margin:0px;
-  margin-top:30px;
-  font-size:22px;
-  padding-bottom:5px;
-  font-weight:bold;
-}
-
-.subtitle {
-  padding-bottom:5px;
-  margin:0px;
-  color:#636366;
-  font-size:19px;
-}
-
-.date {
-  padding-bottom:5px;
-  margin:0px;
-  color:#9E9598;
-  font-style:italic;
-  font-size:17px;
-}
-
-p {
-  font-size:16px;
-  margin-top:5px;
-}
-
-a:link {color:#fff;}
-a:visited {color:#fff;}
-a:hover {color:#636366;text-decoration:underline;}
-a:active {color:#fff;}
-
-
-@media (max-width: 992px;) {
-  .heading, .title, .date, .subtitle {
-    text-align:center;
-  }
-
-}

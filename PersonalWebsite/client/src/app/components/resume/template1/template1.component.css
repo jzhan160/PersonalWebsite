@@ -30,7 +30,7 @@ h3 {
   font-size: 1.25em;
   line-height: 1.42857em;
   margin-bottom: 0.375em;
-  margin-top: 1.05357em;
+  margin-top: 0.05357em;
   position: relative;
 } /* 20px / 16px */
 h4 {
@@ -43,7 +43,7 @@ h4 {
 /* =p leading */
 p {
   margin-bottom: 0.5em;
-  margin-top: 1em;
+  margin-top: 0em;
   font-size: 1.20em;
 }
 p + p {

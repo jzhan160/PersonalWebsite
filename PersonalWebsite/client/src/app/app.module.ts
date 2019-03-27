@@ -39,6 +39,7 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
 import { ProfileComponent } from './components/profile/profile.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { ManageRepoComponent } from './components/manage-repo/manage-repo.component';
+import { CreateResumeComponent } from './components/create-resume/create-resume.component';
 
   // reflect urls to components
 const routes: Routes = [
@@ -49,10 +50,10 @@ const routes: Routes = [
   {path: 'home1', component: Template1Component},
   {path: 'home2', component: Template2Component},
   {path: 'resume1', component: ResumeTemplate1Component},
-  {path: 'resume2', component: ResumeTemplate3Component},
+  {path: 'resume2', component: ResumeTemplate2Component},
   {path: 'init_style', component: StyleComponent},
   {path: 'init_info/:id', component: InfoComponent},
- // { path: '**', loadChildren: 'FilterModule' },
+  { path: 'form', component: IndexComponent },
  {path: 'dashboard/createStory', component: CreateStoryComponent},
   { path: '**', component: FilterComponent},
   // { path: '', redirectTo: 'home1', pathMatch: 'full'},
@@ -79,7 +80,8 @@ const routes: Routes = [
     CreateStoryComponent,
     ProfileComponent,
     ResumeComponent,
-    ManageRepoComponent
+    ManageRepoComponent,
+    CreateResumeComponent
    ],
   imports: [
     BrowserModule,

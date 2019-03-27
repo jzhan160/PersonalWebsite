@@ -3,7 +3,7 @@
 <div class="page">
   <!-- 1. Header -->
   <header>
-    <h1>Jared A. Pearce</h1>
+    <h1>{{dname}}</h1>
     <p class="address">Syracuse, NY 13205 </p>
     <p class="contact">rowd3@gmail.com | (315)335-6431</p>
   </header>
@@ -12,22 +12,17 @@
     <article>
       <section>
         <h2>Formal Education</h2>
-        <h3>
-          Northern Arizona University<span class="time">
-            <time datetime="2003-05-17">5/2003</time>
-          </span>
-        </h3>
-        <p>
-          B.F.A. Visual Communication &#8211; Emphasis Graphic Design,<br />
-          Minor: Russian Area Studies <b>Flagstaff, AZ</b>
-        </p>
-        <h3>
-          Mesa Community College
-          <span class="time">
-            <time datetime="2000-05-20">5/2000</time>
-          </span>
-        </h3>
-        <p>A.A. General Studies <b>Mesa, AZ</b></p>
+        <div *ngFor="let edu of education" >
+            <h3>
+                {{edu.school}}<span class="time">
+                  <time datetime="">{{edu.from}} - {{edu.to}}</time>
+                </span>
+              </h3>
+              <p>
+                Major in {{edu.major}}, {{edu.degree}} Degree
+              </p>
+        </div>
+
       </section>
       <h2>Professional Experience</h2>
       <section>
