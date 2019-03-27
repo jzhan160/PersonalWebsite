@@ -19,7 +19,8 @@
     <mat-card-actions>
       <button mat-button>12 LIKEs</button>
       <button mat-button>Comments</button>
-      <button mat-button>Edit</button>
+      <button mat-button>Add</button>
+      <button mat-button>Delete</button>
     </mat-card-actions>
   </mat-expansion-panel>
 
@@ -36,9 +37,10 @@
       {{s.content}}
     </p>
     <mat-card-actions>
-      <button mat-button>12 LIKEs</button>
+      <button mat-button>LIKEs</button>
       <button mat-button>Comments</button>
-      <button mat-button>Edit</button>
+      <button mat-button (click)="onAdd(s._id, s.createTime)" >Add</button>
+      <button mat-button (click)="onDelete(s._id)" >Delete</button>
     </mat-card-actions>
   </mat-expansion-panel>
 

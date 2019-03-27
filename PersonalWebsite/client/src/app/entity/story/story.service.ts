@@ -27,4 +27,12 @@ export class StoryService {
     }
     return this.http.post(`${this.uri}/get`, domain);
   }
+
+  deleteStory(id){
+    console.log(222222);
+    const story = {
+      id: id
+    }
+    return this.http.post(`${this.uri}/del`, story);
+  }
 }
