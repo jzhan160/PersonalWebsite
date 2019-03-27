@@ -10,6 +10,7 @@ import { CookieService } from "ngx-cookie-service";
 export class ResumeTemplate1Component implements OnInit {
   public education;
   public experience;
+ // public descrip: [[]];
   public skill;
   public username: string;
   constructor(
@@ -25,7 +26,11 @@ export class ResumeTemplate1Component implements OnInit {
         this.education = val["education"];
         this.experience = val["experience"];
         this.skill = val["skills"];
-         //  this.username = val['username'];
+        console.log(this.skill);
+        // for (const exp of this.experience) {
+        //   this.descrip.push(exp.descrip.split('.'));
+        // }
+       this.username = val['username'];
       });
   }
 }

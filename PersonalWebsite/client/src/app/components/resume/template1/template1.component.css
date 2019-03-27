@@ -65,10 +65,12 @@ header p {
   width: 510px;
 }
 .address{
-   padding:0px; margin:0px;display: inline;
+   padding:0px; margin:0px;  text-align: center;
+
 }
 .contact{
-  padding:0px; margin:0px;display: inline;
+  padding:0px; margin:0px; text-align: center;
+
 }
 header h1 {
   text-shadow: 2px 3px 2px #999;

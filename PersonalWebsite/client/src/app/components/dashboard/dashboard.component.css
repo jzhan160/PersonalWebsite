@@ -9,7 +9,7 @@ html, body{
 }
 #toolbar{
   width: 220px;
-  height: 900px;
+  height: 1500px;
   background-color: rgb(139, 135, 135);
   display: block;
   Float:left;
@@ -40,7 +40,7 @@ html, body{
 #toolbar .wrapper .first ul li:hover{
   transition: .3s;
    text-indent:5px;
-} 
+}
 #toolbar .wrapper a{
   font-weight: 100;
   color: #FDFCEC;
@@ -51,7 +51,7 @@ html, body{
   font-size: 25px;
   text-align:center;
   color: #FDFCEC;
-} 
+}
 .fa-cog.top{
   padding-left: 10px;
 }
@@ -73,7 +73,7 @@ html, body{
   margin-top: 10px;
   cursor:pointer;
    transition: .3s;
-opacity:0; 
+opacity:0;
 }
 .fa-bars:hover{
   color: #575E5E;
@@ -110,7 +110,7 @@ i{
   bottom: 10px;
   position: absolute;
   margin-left: 10px;
-  
+
 }
 #copyright-toolbar a.c-a{
   color: #888;

@@ -10,7 +10,7 @@ var DB = require("../db/db.js");
 router.post("/get", function(req, res) {
   var domainName = req.body.domainName;
   DB.find(
-    "resumes",
+    "users",
     {
       domainName: domainName
     },
@@ -18,13 +18,26 @@ router.post("/get", function(req, res) {
       if (error) {
         console.log(error);
       }
-      if (data.length > 0) {
-        res.status(200).json({education: data[0].edu, experience: data[0].exp, skills: data[0].skill});
-      }else{
-        res.status(404).json({ user: "resume not found" });
-      }  
+      var username = data[0].username;
+      DB.find(
+        "resumes",
+        {
+          domainName: domainName
+        },
+        function(error, data) {
+          if (error) {
+            console.log(error);
+          }
+          if (data.length > 0) {
+            res.status(200).json({username: username, education: data[0].edu, experience: data[0].exp, skills: data[0].skill});
+          }else{
+            res.status(404).json({ user: "resume not found" });
+          }  
+        }
+      );
     }
   );
+
  });
 
 router.post("/edit", function(req, res) {});

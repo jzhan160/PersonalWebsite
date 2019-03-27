@@ -3,182 +3,60 @@
 <div class="page">
   <!-- 1. Header -->
   <header>
-    <h1>{{dname}}</h1>
-    <p class="address">Syracuse, NY 13205 </p>
+    <h1>{{ username }}</h1>
+    <p class="address">Syracuse, NY 13205</p>
     <p class="contact">rowd3@gmail.com | (315)335-6431</p>
   </header>
   <!-- 2a. Resume Content -->
   <section class="resume_content">
     <article>
       <section>
+        <div *ngFor="let edu of education">
         <h2>Formal Education</h2>
-        <div *ngFor="let edu of education" >
-            <h3>
-                {{edu.school}}<span class="time">
-                  <time datetime="">{{edu.from}} - {{edu.to}}</time>
-                </span>
-              </h3>
-              <p>
-                Major in {{edu.major}}, {{edu.degree}} Degree
-              </p>
+          <h3>
+            {{ edu.school}}
+            <span class="time"> <time datetime="">{{ edu.from }} - {{ edu.to }}</time>
+            </span>
+          </h3>
+          <p>Major in {{ edu.major }}, {{ edu.degree }} Degree</p>
         </div>
-
       </section>
-      <h2>Professional Experience</h2>
+
       <section>
+        <h2>Professional Experience</h2>
+        <div *ngFor="let exp of experience">
+
         <h3>
-          Front End Web Developer
-          <span class="time">
-            <time datetime="2013-05-20" class="start">2013</time>
-            &#8211; Present
+            {{exp.job}}
+             <span class="time">
+            <time  class="start"> {{exp.from}}</time>
+            &#8211;  <time  class="start"> {{exp.to}}</time>
           </span>
         </h3>
         <p>
-          <strong><!-- http://mathworks.com -->The MathWorks, Inc.</strong>
-          <b>Natick, MA</b>
-        </p>
-        <ul>
+          <strong> {{exp.company}} </strong>
+         </p>
+         <p>{{exp.descrip}}</p>
+        <!-- <ul *ngFor="let d of descrip">
+
           <li>
             Reduced software development delays and increased code quality by
             adapting the peer-to-peer code review process to leverage existing
             version control system functionality.
           </li>
-          <li>
-            Provided energetic and meticulous feedback when evaluating visual
-            design mocks and usability wireframes for feasibility of responsive
-            HTML5/CSS3 conversion.
-          </li>
-          <li>
-            Contributed to the in-house front end community by demonstrating how
-            standard practices for CSS commenting and CSS rule-set structure
-            generates high quality reusable code.
-          </li>
-          <li>
-            Worked with Quality Engineering to deliver true to specification web
-            experiences that resolved cross browser discrepancies and
-            compatibility issues.
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h3>
-          Lead Multimedia Developer
-          <span class="time">
-            <time datetime="2007-05-29" class="start">2007</time> &#8211;
-            <time datetime="2013-05-14" class="end">2013</time>
-          </span>
-        </h3>
-        <p>
-          <strong
-            ><!-- http://sandia.gov/ -->Sandia National Laboratories</strong
-          >
-          <b>Albuquerque, NM</b>
-        </p>
-        <p>
-          Established, in the final design specifications, visual layouts that
-          conformed to a graphical user interface (GUI) framework, instituted
-          strong typography and implemented appropriate color theory.
-        </p>
-        <ul>
-          <li>
-            Scoped, designed and deployed standardized learning templates
-            programmed in HTML, CSS and JavaScript for consistent delivery of
-            web-based training.
-          </li>
-          <li>
-            Presented high fidelity prototypes using HTML, CSS and JavaScript to
-            engage customers in interactive feedback sessions, promote rapid
-            design exploration and identify user patterns.
-          </li>
-          <li>
-            Partnered in negotiating cost, schedule, and performance
-            expectations with project leads and customers.
-          </li>
-          <li>
-            Provided technical support for colleagues and clients; resolving 31
-            formal customer support tickets in the past year.
-          </li>
-        </ul>
-        <p>
-          Assisted in defining and promoting technical avenues of growth,
-          direction, vision and planning for the E-Learning Services Team.
-        </p>
-        <ul>
-          <li>
-            Promoted a clean, holistic, and scalable approach to the team's
-            template architecture by using the Adobe Creative Suite.
-          </li>
-          <li>
-            Incorporated jQuery as part of the e-learning infrastructure for DOM
-            manipulation within Sandia's Online Learning Generation Application
-            (OLGA).
-          </li>
-          <li>
-            Produced Sandia's first responsive mobile prototype for web-based
-            training through the use of CSS media queries, HTML5 and jQuery.
-          </li>
-        </ul>
-        <p>
-          Researched and implemented clean coding practices and industry-touted
-          methodologies within software development processes to ensure software
-          quality, stability and graceful degradation.
-        </p>
-        <ul>
-          <li>
-            Used the Firefox Web Developer extension to iterate rapidly through
-            the software development life cycle and to ensure pixel-perfect
-            design implementation.
-          </li>
-          <li>
-            Hand coded design specifications for accurate display in Firefox
-            modifying, as needed, for other browsers.
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h3>
-          Web Technician
-          <span class="time">
-            <time datetime="2003-10-20" class="start">2003</time>
-            &#8211;
-            <time datetime="2007-05-29" class="end">2007</time>
-          </span>
-        </h3>
-        <p>
-          Contracted to Sandia National Laboratories by
-          <strong
-            ><!-- http://www.excelstaff.com/ -->Tactical Staffing Resources,
-            LLC</strong
-          >
-          <b>Albuquerque, NM</b>
-        </p>
-        <ul>
-          <li>
-            Senior member of the E-Learning Services team responsible for
-            developing and maintaining over 70 online training courses.
-          </li>
-          <li>
-            Reduced employee training time by 88%, from 4 hours to 30 minutes,
-            by converting instructor led training materials to web-based
-            courses; saving Sandia $350 per employee per online course taken.
-          </li>
-          <li>
-            Pioneered implementation of AICC/SCORM industry standards within
-            Sandia's e-learning culture using HTML/CSS and ensured the overall
-            architecture conformed to Section 508 Compliance.
-          </li>
-        </ul>
+        </ul> -->
+      </div>
       </section>
 
       <section>
         <h2>Skills</h2>
-           <p>CSS, HTML, JavaScript, PHP, SCRUM</p>
+        <ul *ngFor="let ski of skill">
+          <li>{{ski.skill}}</li>
+        </ul>
       </section>
     </article>
   </section>
   <div class="text-right">
-    <button onclick="window.print()" class = "btn-start-order">Download</button>
-
+    <button onclick="window.print()" class="btn-start-order">Download</button>
   </div>
-
 </div>

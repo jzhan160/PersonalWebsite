@@ -1,12 +1,10 @@
-@import "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css";
+ @import "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 .heading {
   text-align: center;
   margin: 3% 0 3% 0;
-
-  /* font-family: 'Anton', sans-serif; */
-}
+ }
 
 #title-1 {
   font-size: 3rem;
