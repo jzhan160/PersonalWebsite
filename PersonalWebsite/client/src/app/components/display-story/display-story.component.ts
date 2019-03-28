@@ -10,7 +10,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class DisplayStoryComponent implements OnInit {
 
-  @Input() private stories;
+ private stories;
 
   constructor(private storyService: StoryService,private snackBar: MatSnackBar) {
 
@@ -21,6 +21,9 @@ export class DisplayStoryComponent implements OnInit {
       val => {
         this.stories = val;
         console.log(this.stories);
+      },
+      error =>{
+        console.log(error);
       }
     );
   }

@@ -47,13 +47,13 @@ var file = require("./controller/file");
 var webStats = require("./controller/webStats");
 
 app.use("/", user);
-//app.use("/webStats",webStats);
 app.use("/story", story);
 app.use("/resume", resume);
 app.use("/repo", repo);
 app.use("/story", story);
 app.use("/dashboard", dashboard);
 app.use("/file",file);
+
 app.listen(8080, "localhost",function () {
   console.log('Node.js server is running on port 8080');
 });
