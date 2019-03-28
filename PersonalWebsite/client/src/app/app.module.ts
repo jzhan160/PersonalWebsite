@@ -46,7 +46,6 @@ import { DisplayStoryComponent } from './components/display-story/display-story.
 
   // reflect urls to components
 const routes: Routes = [
-
   { path: 'login', component: LoginComponent},
   {path: 'dashboardTest', component : DashboardComponent},
   {path: 'htest', component : HistoryComponent},
