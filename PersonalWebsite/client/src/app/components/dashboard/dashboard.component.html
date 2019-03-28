@@ -32,7 +32,7 @@
     </div>
 
     <div id = "subtitle" class="tool-change-background" >
-        <font color="#F8F8FF" >Manage</font>
+        <font color="#F8F8FF" >Manage</font> 
     </div>
 
     <div class="first">
@@ -46,7 +46,7 @@
         <li>
           <div class="tool-change-background">
               <i class="fas fa-id-card"></i>
-            <a (click) = "onAddResume()">Resume</a>
+            <a >Resume</a>
           </div>
         </li>
         <li>
@@ -61,6 +61,5 @@
   </div>
 </div>
 <app-history *ngIf="showNum == 0"></app-history>
-  <app-create-resume *ngIf="showNum == 2"></app-create-resume>
- <app-create-story *ngIf="showNum == 1" (storyCreated)="onStoryCreated($event)"></app-create-story>
+<app-create-story *ngIf="showNum == 1" (storyCreated)="onStoryCreated($event)"></app-create-story>
 <app-display-story *ngIf="showNum == 1" #childDisplayStory></app-display-story>

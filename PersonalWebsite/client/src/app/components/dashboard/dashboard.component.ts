@@ -9,10 +9,11 @@ import { DisplayStoryComponent } from '../display-story/display-story.component'
 })
 export class DashboardComponent implements OnInit {
 
+
   @ViewChild('childDisplayStory')
   childDisplayStory: DisplayStoryComponent;
 
-  public showNum = 1;
+  showNum = 1;
 
 
   constructor() { }
@@ -23,6 +24,8 @@ export class DashboardComponent implements OnInit {
   onStoryCreated(){
     this.childDisplayStory.ngOnInit();
   }
+
+
   onStats(){
     this.showNum = 0;
   }
@@ -33,7 +36,6 @@ export class DashboardComponent implements OnInit {
   onAddResume(){
     this.showNum = 2;
   }
-
 }
 
 
