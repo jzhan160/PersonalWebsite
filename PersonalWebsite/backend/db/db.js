@@ -15,8 +15,6 @@ function connect(callback) {
     })
 }
 
-
-
 exports.find = function (collection_name, json, callback) {
     connect(function (db) {
         var result = db.collection(collection_name).find(json);
@@ -26,7 +24,15 @@ exports.find = function (collection_name, json, callback) {
         db.close();
     })
 }
-
+exports.findAndSort = function (collection_name, json, sort ,callback) {
+    connect(function (db) {
+        var result = db.collection(collection_name).find(json).sort(sort);
+         result.toArray(function (error, data) {
+            callback(error, data)
+        });
+        db.close();
+    })
+}
 
 exports.insert = function (collection_name, json, callback) {
     connect(function (db) {

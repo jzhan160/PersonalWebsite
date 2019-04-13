@@ -36,6 +36,9 @@ export class DashboardComponent implements OnInit {
   onAddResume(){
     this.showNum = 2;
   }
+  onShowMsg(){
+    this.showNum = 3;
+  }
 }
 
 

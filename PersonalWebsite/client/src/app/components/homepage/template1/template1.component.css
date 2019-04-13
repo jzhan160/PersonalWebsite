@@ -1,32 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Exo);
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 'Exo', sans-serif;
-}
 
-@keyframes shutter {
-  0% {
-    background: transparent;
-    border: 1px solid white;
-  }
-  100% {
-    background-color: black;
-    border: 0px solid white;
-  }
-}
-
-body {
-  font-size: 12px;
-}
 
 .landing {
   height: 55em;
   width: 100%;
-  background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("https://snap-photos.s3.amazonaws.com/img-thumbs/960w/KQHC0T8GSY.jpg");
+  background:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://s2.wp.com/wp-content/themes/pub/lodestar/assets/images/header.jpg");
   background-size: cover;
   background-position: center top;
-  margin-bottom: 2.5%;
+  margin-bottom: 0;
 }
 
 .landingHeader {
@@ -35,7 +16,9 @@ body {
   font-size: 5.5em;
   font-weight: normal;
   color: white;
+  margin-top: 0%; 
 }
+ 
 
 nav {
   width: 80%;
@@ -63,26 +46,12 @@ nav {
   background-color: black;
   border: none;
 }
-
-.workHeader {
-  height: 15em;
-  width: 100%;
-  background-color: black;
-  color: white;
-  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-}
-
-.work {
-  height: 55em;
-  width: 100%;
-}
+ 
 
 .sectionHeader {
   padding-top: 4%;
   text-align: center;
-  font-size: 5.5em;
+  font-size: 4.5em;
   font-weight: normal;
   color: white;
 }
@@ -91,37 +60,3 @@ box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
   text-align: center;
   opacity: .87;
 }
-
-.gallery {
-  background-color: white;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  margin-bottom: 2.5%;
-}
-
-.picture {
-  margin-left: 1%;
-  margin-top: 0.5%;
-  flex-basis: 10% | 0;
-  height: 20em;
-  flex-grow: 0.3;
-  opacity: 0.8;
-  -webkit-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-footer {
-  background-color: black;
-  color: white;
-  height: 8.5em;
-}
-
-.footerInfo {
-  text-align: center;
-  padding-top: 3.5%;
-  font-size: 1.2em;
-}
-

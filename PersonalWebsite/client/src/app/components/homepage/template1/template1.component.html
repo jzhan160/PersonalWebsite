@@ -1,32 +1,18 @@
 <app-header></app-header>
 
 <section class="landing">
-    <h1 class="landingHeader">{{username}}</h1>
-    <nav>
-      <button (click) = "resume()" class="navButton">
-        Resume
-      </button>
-      <button class="navButton">
-        Story
-      </button>
-      <button class="navButton">
-        Repository
-      </button>
-    </nav>
-  </section>
-
-  <header class="workHeader">
-    <h1 class="sectionHeader">My Work</h1>
-    <p class="sectionSub"><i>See what i've made.</i></p>
-    <p>{{text}}</p>
-  </header>
-  <section class="gallery">
-    <img class="picture" src="https://images.unsplash.com/photo-1442406964439-e46ab8eff7c4?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=183f00855ea5cbd2199ad30c720b8d82">
-    <img class="picture" src="https://images.unsplash.com/photo-1421757381940-5d269570b21c?crop=entropy&fit=crop&fm=jpg&h=725&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1225">
-
-    <img class="picture" src="https://images.unsplash.com/photo-1414690165279-49ab0a9a7e66?crop=entropy&fit=crop&fm=jpg&h=725&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1225">
-    <img class="picture" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/FVIYKRN6CI.jpg">
-    <img class="picture" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/BUQU9ERJAC.jpg">
-    <img class="picture" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8Z2QWLCH72.jpg">
-  </section>
-
+  <h1 class="landingHeader">{{username}}</h1>
+  <nav>
+    <button (click)="resume()" class="navButton">
+      Resume
+    </button>
+    <button class="navButton">
+      Story
+    </button>
+    <button class="navButton">
+      Repository
+    </button>
+  </nav>
+</section>
+ 
+<app-message></app-message>

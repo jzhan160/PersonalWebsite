@@ -46,9 +46,15 @@
         <li>
           <div class="tool-change-background">
               <i class="fas fa-id-card"></i>
-            <a >Resume</a>
+            <a (click) = "onAddResume()" >Resume</a>
           </div>
         </li>
+        <li>
+            <div class="tool-change-background">
+                <i class="fas fa-envelope"></i>
+              <a (click) = "onShowMsg()">Message</a>
+            </div>
+          </li>
         <li>
           <div class="tool-change-background">
               <i class="fas fa-folder-open"></i>
@@ -63,3 +69,6 @@
 <app-history *ngIf="showNum == 0"></app-history>
 <app-create-story *ngIf="showNum == 1" (storyCreated)="onStoryCreated($event)"></app-create-story>
 <app-display-story *ngIf="showNum == 1" #childDisplayStory></app-display-story>
+ 
+<app-create-resume *ngIf="showNum == 2"></app-create-resume>
+<app-display-message *ngIf="showNum == 3"></app-display-message>

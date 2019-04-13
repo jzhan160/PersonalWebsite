@@ -12,7 +12,11 @@ export class Template1Component implements OnInit {
   domainName: string;
   username: string;
   text: string;
-  constructor(private cookieService: CookieService, private  userService: UserService, private router: Router) {
+
+  constructor(private cookieService: CookieService, private  userService: UserService, 
+              private router: Router
+              ) {
+  
   }
 
   ngOnInit() {
@@ -33,6 +37,7 @@ export class Template1Component implements OnInit {
        this.router.navigate(['/resume1']);
    }
 
+ 
 
 
 }
