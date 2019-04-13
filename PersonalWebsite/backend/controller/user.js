@@ -45,7 +45,6 @@ router.post("/login", function(req, res) {
 
 router.post("/searchDomainName", function(req, res) {
   var domainName = req.body.domainName;
-  console.log("To find domain: "+ domainName);
   DB.find(
     "users",
     {
@@ -57,7 +56,7 @@ router.post("/searchDomainName", function(req, res) {
       }
       if (data.length > 0) {
         //data is a json array!
-        console.log("RES: "+data[0]);
+        //console.log("RES: "+data[0]);
         res.status(200).json({
           user: "Find domain name",
           templateId: data[0].templateId,
@@ -110,22 +109,10 @@ router.get("/logout", function(req, res) {
   res.status(200).json({ user: "Logout" });
 });
 
-router.get("/setup", function(req, res) {
-  //this part shoule be optimized later to avoid deplicated setups
-  res.render("setup");
-});
-
-// router.post("/template", function(req, res) {
-//   //get the template number from the request and store it in db
-//   var templateId = req.body.templateId;
-//   console.log("templateId");
-//   console.log(templateId);
-//   res.status(200).json({ user: "pageTemplate_selected" });
-// });
 
 router.post("/submit_info", function(req, res) {
   //get the info from the request and store it in db
-  console.log(req.body);
+  //console.log(req.body);
   var email = req.body.email; //insert by email
   var templateId = req.body.templateId;
   var username = req.body.username;

@@ -11,14 +11,6 @@ export class UserService {
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
-  // getUser() {
-  //   return this.http.get(`${this.uri}/issues`);
-  // }
-
-  // getIssueById(id) {
-  //   return this.http.get(`${this.uri}/issues/${id}`);
-  // }
-
   searchDomainName(dname){
     const domain = {
       domainName: dname
@@ -44,18 +36,12 @@ export class UserService {
   }
 
   userLogout(){
-    this.cookieService.set('user','visitor');
+    this.cookieService.set('domainSource','');
+    this.cookieService.set('domainDest','');
+
     return this.http.get(`${this.uri}/logout`);
   }
 
-  // selectTemplate(tId){
-  //   const tempalte = {
-  //     templateId: tId
-  //    };
-  //   // // return this.http.post(`${this.uri}/set_up`, tempalte);
-  //   return this.http.post(`${this.uri}/template`, tempalte);
-
-  // }
   completeInfo(uname, dname, addre, pho, pth, fname,tId,emai) {
       const user = {
          username: uname,
@@ -70,4 +56,5 @@ export class UserService {
       return this.http.post(`${this.uri}/submit_info`, user);
   }
 
+ 
 }

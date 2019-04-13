@@ -32,8 +32,7 @@ export class LoginComponent implements OnInit {
          this.cookieService.set('templateId', templateId);
          this.cookieService.set('domainSource',session);
          this.cookieService.set('domainDest',session);
-         const homeURL = '/home' +templateId;
-         this.router.navigate([homeURL]);
+          this.router.navigate(['/'+session]);
         },
         error =>{
              console.log(error);

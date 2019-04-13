@@ -1,70 +1,71 @@
 <div class="heading" id="heading">
-      <h1 class="heading-title">
-          <span id="title-1">Create your resume here</span><br /><br />
-        </h1>
+  <h2 class="heading-title">
+    <span id="title-1">Create your resume here</span><br /><br />
+  </h2>
+  <hr />
+</div>
 
-      <hr />
+<div class="container">
+     <form id="contact-form" class="form" [formGroup]="eduForm" method="POST" role="form">
+      <label class="form-label" for="education">Education</label>
+      <div formArrayName="eduRows">
+        <div *ngFor="let eduRow of eduForm.controls.eduRows.controls; let i=index" [formGroupName]="i">
+          <input matInput class="form-control" placeholder="Degree/Diploma" formControlName="degree" #degree><br />
+          <input matInput class="form-control" placeholder="Major" formControlName="major" #major><br />
+          <input matInput class="form-control" placeholder="School Name" formControlName="school" #school><br />
+          <input matInput class="form-control" placeholder="From MM/YY" formControlName="from" #from><br />
+          <input matInput class="form-control" placeholder="To MM/YY" formControlName="to" #to><br />
+        </div>
+      </div>
+    </form>
+    <div class="text-center">
+      <button (click)="addEduRow()" class="btn btn-start-order">Add Education</button>
+      <button *ngIf="eduForm.controls.eduRows.controls.length > 1" (click)="deleteEduRow(i)" class="btn btn-start-order">Delete
+        Education</button>
+    </div>
+
+
+    <form id="contact-form" class="form" [formGroup]="expForm" method="POST" role="form">
+      <label class="form-label" for="experience">Experience</label>
+      <div formArrayName="expRows">
+        <div *ngFor="let exprow of expForm.controls.expRows.controls; let i=index" [formGroupName]="i">
+          <input matInput class="form-control" placeholder="Job Title" formControlName="job" #job><br />
+          <input matInput class="form-control" placeholder="Company Name" formControlName="company" #company><br />
+          <input matInput class="form-control" placeholder="From MM/YY" formControlName="from" #from><br />
+          <input matInput class="form-control" placeholder="To MM/YY" formControlName="to" #to><br /><br />
+          <textarea matInput class="form-textarea" placeholder="Enter a brief decription of your previous work"
+            formControlName="descrip" #descrip></textarea><br />
+        </div>
+      </div>
+
+    </form>
+
+    <div class="text-center">
+      <button (click)="addExpRow()" class="btn btn-start-order">Add Experience</button>
+      <button *ngIf="expForm.controls.expRows.controls.length > 1" (click)="deleteExpRow(i)" class="btn btn-start-order">Delete
+        Experience</button>
+    </div>
+
+
+    <form id="contact-form" class="form" [formGroup]="skillForm" method="POST" role="form">
+      <label class="form-label" for="skills">Skills</label>
+      <div formArrayName="skillRows">
+        <div *ngFor="let itemrow of skillForm.controls.skillRows.controls; let i=index" [formGroupName]="i">
+          <div class="form-group">
+            <textarea matInput formControlName="skill" class="form-textarea" placeholder="Enter professional skills such as C++, Java, C# ......"></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="text-center">
+      <button (click)="addSkillRow()" class="btn btn-start-order">Add Skills</button>
+      <button *ngIf="skillForm.controls.skillRows.controls.length > 1" (click)="deleteSkillRow(i)" class="btn btn-start-order">Delete
+        Skills</button>
+    </div>
+    <div class="text-center">
+      <button (click)="finish()" class="btn btn-start-order">Finish and generate</button>
+    </div>
+
+
    </div>
-  <div class="container">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-4">
-      <form id="contact-form" class="form" [formGroup]="eduForm"  method="POST" role="form">
-          <label class="form-label" for="education">Education</label>
-          <div formArrayName="eduRows">
-              <div *ngFor="let eduRow of eduForm.controls.eduRows.controls; let i=index"  [formGroupName]="i">
-                <input matInput  class="form-control" placeholder="Degree/Diploma" formControlName="degree" #degree>
-                <input matInput  class="form-control" placeholder="Major" formControlName="major" #major>
-                <input matInput  class="form-control" placeholder="School Name" formControlName="school" #school>
-                <input matInput  class="form-control" placeholder="From MM/YY" formControlName="from" #from>
-                <input matInput  class="form-control" placeholder="To MM/YY" formControlName="to" #to>
-              </div>
-          </div>
-        </form>
-        <div class="text-center">
-            <button   (click)="addEduRow()"  class="btn btn-start-order">Add Education</button>
-            <button *ngIf="eduForm.controls.eduRows.controls.length > 1"
-             (click)="deleteEduRow(i)"  class="btn btn-start-order">Delete Education</button>
-        </div>
-
-
-        <form id="contact-form" class="form" [formGroup]="expForm"  method="POST" role="form">
-          <label class="form-label" for="experience">Experience</label>
-          <div formArrayName="expRows">
-              <div *ngFor="let exprow of expForm.controls.expRows.controls; let i=index"  [formGroupName]="i">
-                <input matInput  class="form-control" placeholder="Job Title" formControlName="job" #job>
-                <input matInput  class="form-control" placeholder="Company Name" formControlName="company" #company>
-                <input matInput  class="form-control" placeholder="From MM/YY" formControlName="from" #from>
-                <input matInput  class="form-control" placeholder="To MM/YY" formControlName="to" #to>
-                <textarea matInput class="form-control" placeholder="Enter a brief decription of your previous work"
-                 formControlName = "descrip" #descrip></textarea>
-              </div>
-          </div>
-
-      </form>
-
-      <div class="text-center">
-          <button   (click)="addExpRow()"  class="btn btn-start-order">Add Experience</button>
-          <button *ngIf="expForm.controls.expRows.controls.length > 1"
-           (click)="deleteExpRow(i)"  class="btn btn-start-order">Delete Experience</button>
-      </div>
-
-
-      <form id="contact-form" class="form" [formGroup]="skillForm"  method="POST" role="form">
-          <label class="form-label" for="skills">Skills</label>
-          <div formArrayName="skillRows">
-              <div *ngFor="let itemrow of skillForm.controls.skillRows.controls; let i=index"  [formGroupName]="i">
-                <div class="form-group">
-                  <textarea matInput  formControlName="skill"  class="form-control"
-                  placeholder="Enter professional skills such as C++, Java, C# ......"></textarea>
-                </div>
-              </div>
-           </div>
-        </form>
-        <div class="text-center">
-            <button   (click)="addSkillRow()"  class="btn btn-start-order">Add Skills</button>
-            <button *ngIf="skillForm.controls.skillRows.controls.length > 1"
-             (click)="deleteSkillRow(i)"  class="btn btn-start-order">Delete Skills</button>
-        </div>
-        <div class="text-center">
-            <button   (click)="finish()"  class="btn btn-start-order">Finish and generate</button>
-        </div>
-      </div>
+  

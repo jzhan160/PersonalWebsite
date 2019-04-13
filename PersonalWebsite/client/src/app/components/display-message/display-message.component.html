@@ -1,0 +1,25 @@
+<div class="container">
+    <h3 style="color:#3a8bab;"> Recent Messages</h3>
+    <p *ngIf="messages?.length ==0">No message</p>
+    <mat-expansion-panel *ngFor="let msg of messages" class="example-card" style="width: 600px;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          From: {{msg.name}} 
+        </mat-panel-title>
+        <mat-panel-description>
+         Email: {{msg.from}} 
+        </mat-panel-description>
+        <mat-panel-description>
+          {{msg.time}}
+           </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>
+        {{msg.content}}
+      </p>
+      <mat-card-actions>
+        <button mat-button (click)="onRead(msg._id)" >Read</button>
+        <button mat-button (click)="onDelete(msg._id)" >Delete</button>
+      </mat-card-actions>
+    </mat-expansion-panel>
+  
+  </div>

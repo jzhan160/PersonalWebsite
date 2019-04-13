@@ -21,15 +21,13 @@ router.post('/add', function (req, res) {
 router.post('/get', function(req,res){
     console.log(1);
     const domain = req.body.domain;
-    console.log(domain);
-    DB.find('story',{
+     DB.find('story',{
         domain: domain
     }, function(error, data){
         if(error){
             console.log(err);
         }else{
-            console.log(data);
-            res.status(200).json(data);
+             res.status(200).json(data);
         }
     })
 });

@@ -1,5 +1,5 @@
- @import "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css";
-@import "~bootstrap/dist/css/bootstrap.min.css";
+  /* @import "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"; */
+/* @import "~bootstrap/dist/css/bootstrap.min.css"; */
 
 .heading {
   text-align: center;
@@ -7,8 +7,8 @@
  }
 
 #title-1 {
-  font-size: 3rem;
-  letter-spacing: 0.5rem;
+  font-size: 1.7rem;
+  letter-spacing: 0.3rem;
 }
 
 hr {
@@ -28,11 +28,12 @@ hr {
 
 .container{
    margin-top: -4px;
+   margin-left: 40%
 }
 .form-label {
 	font-size: 20px;
 	color: #5e9bfc;
-	margin: 10px;
+	margin: 0;
 	display: block;
 	opacity: 1;
 	-webkit-transition: .333s ease top, .333s ease opacity;
@@ -45,19 +46,33 @@ hr {
    	border-width: 0 0 2px 0;
    	border-style: none none solid none;
      box-shadow: none;
-     font-size:1.3em;
-  height: calc(3.5em + -0.25rem + 2px)
+     font-size:1em;
+  height: calc(3.5em + -0.25rem + -6px);
+  width: 35%
 }
 .form-control:focus {
 	box-shadow: none;
 	border-color: #5e9bfc;
 }
-.js-hide-label {
-	opacity: 0;
+
+.form-textarea {
+	border-radius: 0;
+	border-color: #ccc;
+   	border-width: 0 0 2px 0;
+   	border-style: none none solid none;
+     box-shadow: none;
+     font-size:1.5em;
+  height: calc(5em + -0.25rem + -6px);
+  width: 50%;
 }
-.js-unhighlight-label {
-	color: #999
+.form-textarea:focus {
+	box-shadow: none;
+	border-color: #5e9bfc;
 }
+
+
+
+ 
 .btn-start-order {
 	background: 0 0 #ffffff;
     border: 1px solid #2f323a;

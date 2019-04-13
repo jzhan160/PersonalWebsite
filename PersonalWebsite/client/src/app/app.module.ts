@@ -43,23 +43,25 @@ import { ResumeComponent } from './components/resume/resume.component';
 import { ManageRepoComponent } from './components/manage-repo/manage-repo.component';
 import { CreateResumeComponent } from './components/create-resume/create-resume.component';
 import { DisplayStoryComponent } from './components/display-story/display-story.component';
+import { MessageComponent } from './components/message/message.component';
+import { DisplayMessageComponent } from './components/display-message/display-message.component';
 
   // reflect urls to components
 const routes: Routes = [
-  { path: 'login', component: LoginComponent},
-  {path: 'dashboardTest', component : DashboardComponent},
-  {path: 'htest', component : HistoryComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'home1', component: Template1Component},
   {path: 'home2', component: Template2Component},
   {path: 'resume1', component: ResumeTemplate1Component},
   {path: 'resume2', component: ResumeTemplate2Component},
+  {path: 'dashboardTest', component : DashboardComponent},
+  {path: 'htest', component : HistoryComponent},
   {path: 'init_style', component: StyleComponent},
   {path: 'init_info/:id', component: InfoComponent},
-  { path: 'form', component: IndexComponent },
- {path: 'dashboard/createStory', component: CreateStoryComponent},
-  { path: '**', component: FilterComponent},
-  // { path: '', redirectTo: 'home1', pathMatch: 'full'},
-];
+  {path: 'form', component: IndexComponent },
+  {path: 'dashboard/createStory', component: CreateStoryComponent},
+  {path: 'messageTest', component: MessageComponent},
+  {path: '**', component: FilterComponent},
+ ];
 
 @NgModule({
   declarations: [
@@ -84,7 +86,9 @@ const routes: Routes = [
     ResumeComponent,
     ManageRepoComponent,
     CreateResumeComponent,
-    DisplayStoryComponent
+    DisplayStoryComponent,
+    MessageComponent,
+    DisplayMessageComponent
    ],
   imports: [
     MatExpansionModule,
