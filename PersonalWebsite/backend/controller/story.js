@@ -11,7 +11,7 @@ router.post('/add', function (req, res) {
     const story = req.body;
     DB.insert('story', story, function (err, data) {
         if(err){
-            res.status(400).json("msg: Failed to Add this story!")
+            res.status(400).json("msg: Failed to add this story!")
         }else{
             res.status(200).json("msg: Added successfully!");
         }

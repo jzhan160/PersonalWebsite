@@ -14,8 +14,7 @@ export class CreateStoryComponent implements OnInit {
 
   constructor(private storyService: StoryService, private snackBar: MatSnackBar) { }
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit(f: NgForm){
     if(f.value.title == '' || f.value.content == ''){

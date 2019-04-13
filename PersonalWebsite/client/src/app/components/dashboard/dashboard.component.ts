@@ -9,12 +9,10 @@ import { DisplayStoryComponent } from '../display-story/display-story.component'
 })
 export class DashboardComponent implements OnInit {
 
-
   @ViewChild('childDisplayStory')
   childDisplayStory: DisplayStoryComponent;
 
   showNum = 1;
-
 
   constructor() { }
 
