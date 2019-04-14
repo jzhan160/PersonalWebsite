@@ -58,7 +58,7 @@
         <li>
           <div class="tool-change-background">
               <i class="fas fa-folder-open"></i>
-            <a >Manage Repo</a>
+            <a (click) = "onShowRepo()">Manage Repo</a>
           </div>
         </li>
       </ul>
@@ -72,3 +72,5 @@
  
 <app-create-resume *ngIf="showNum == 2"></app-create-resume>
 <app-display-message *ngIf="showNum == 3"></app-display-message>
+
+<app-manage-repo *ngIf="showNum == 4"></app-manage-repo>

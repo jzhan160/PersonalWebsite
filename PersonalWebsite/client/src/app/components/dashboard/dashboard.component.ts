@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild('childDisplayStory')
   childDisplayStory: DisplayStoryComponent;
 
-  showNum = 1;
+  showNum = 4;
 
   constructor() { }
 
@@ -36,6 +36,10 @@ export class DashboardComponent implements OnInit {
   }
   onShowMsg(){
     this.showNum = 3;
+  }
+
+  onShowRepo(){
+    this.showNum = 4;
   }
 }
 

@@ -1,0 +1,10 @@
+Build.txt - Project1Prototype
+=============================
+To build this solution:
+- Start Visual Studio as Administrator
+- build HelperComp project (will become your FileMgr component)
+- build UsingComp project (will become your TextSearch component)
+- build client
+The order matters, so building the solution won't work.
+You don't  need to register the components as ATL generates
+self registering components.

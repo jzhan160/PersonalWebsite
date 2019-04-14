@@ -45,6 +45,7 @@ import { CreateResumeComponent } from './components/create-resume/create-resume.
 import { DisplayStoryComponent } from './components/display-story/display-story.component';
 import { MessageComponent } from './components/message/message.component';
 import { DisplayMessageComponent } from './components/display-message/display-message.component';
+import { RepositoryComponent } from './components/repository/repository.component';
 
   // reflect urls to components
 const routes: Routes = [
@@ -88,7 +89,8 @@ const routes: Routes = [
     CreateResumeComponent,
     DisplayStoryComponent,
     MessageComponent,
-    DisplayMessageComponent
+    DisplayMessageComponent,
+    RepositoryComponent
    ],
   imports: [
     MatExpansionModule,

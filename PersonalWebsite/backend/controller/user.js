@@ -12,6 +12,7 @@ var DB = require("../db/db.js");
 router.post("/do_register", function(req, res) {
   var email = req.body.email;
   var password = md5(req.body.password);
+  console.log("do_register");
   DB.find(
     "users",
     {
@@ -73,6 +74,7 @@ router.post("/searchDomainName", function(req, res) {
 router.post("/do_login", function(req, res) {
   var email = req.body.email;
   var password = md5(req.body.password);
+  console.log("login");
   DB.find(
     "users",
     {
@@ -117,6 +119,10 @@ router.post("/submit_info", function(req, res) {
   var templateId = req.body.templateId;
   var username = req.body.username;
   var domainName = req.body.domainName;
+
+  //create a folder for project
+  fs.mkdir('./user_repo/' + domainName);
+  
   var address = req.body.address;
   var phone = req.body.phone;
   var path = "./upload/" + domainName + "/" + req.body.filename;
