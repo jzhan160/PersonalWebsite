@@ -1,21 +1,3 @@
-/* Google Fonts -  Titillium Web */
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,900,200,300,700);
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css);
-body {
-  font-family: 'Titillium Web', sans-serif;
-  color: #000000;
-}
-
-.navbar-default {
-  background: #ffffff;
-  border: none;
-}
-
-.navbar-default ul li a {
-  cursor: pointer;
-}
-
 .welcome, .profile, .resume, .portfolio, .contact {
   padding-top: 50px;
 }
@@ -87,65 +69,7 @@ height: 0;
 border-top: 1px solid rgba(0, 0, 0, 0.1);
 border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-
-article.education {
-  padding-top: 20px;
-  padding-bottom: 10px;
-}
-
-.education h1 {
-  font-weight: 700;
-  font-size: 20px;
-
-}
-
-.education small {
-  color: #696969;
-  font-size: 15px;
-  padding-left: 15px;
-}
-
-.education h2 {
-  font-weight: 400;
-  font-size: 18px;
-}
-
-.education h3 {
-  font-weight: 300;
-  font-size: 14px;
-}
-
-article.work {
-  padding-top: 20px;
-  padding-bottom: 10px;
-}
-
-.work h1 {
-  font-weight: 700;
-  font-size: 20px;
-
-}
-
-.work small {
-  color: #696969;
-  font-size: 15px;
-  padding-left: 15px;
-}
-
-.work h2 {
-  font-weight: 400;
-  font-size: 18px;
-}
-
-.work h3 {
-  font-weight: 300;
-  font-size: 14px;
-}
-
-.work p {
-  padding-top: 10px;
-}
-
+  
 .label {
   font-weight: 300;
   font-size: 12px;
@@ -157,10 +81,4 @@ article.work {
   border: 1px solid #efefef;
 }
 
-.contact {
-  background-color: #696969;
-}
-
-.message{
-  margin-right: 40%;
- }
+ 

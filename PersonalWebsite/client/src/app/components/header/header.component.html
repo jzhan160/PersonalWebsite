@@ -1,7 +1,17 @@
 <mat-toolbar color="primary">
   Personal Website
-  <button id="btn" class="ghost">
-    <div *ngIf="user == 'admin'">Logout</div>
-    <div *ngIf="user != 'admin'">Login</div>
-  </button>
+  
+  <div class="dropdown" *ngIf="user == 'admin'">
+    <button class="dropbtn"><img class="photo" src= "{{photoPath}}" > </button>
+    <div class="dropdown-content">
+      <a (click)="home()">Home</a>
+      <a (click)="dashboard()">Dashboard</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+  </div>
+  <div class="dropdown" *ngIf="user != 'admin'">
+      <button class="dropbtn" (click)="home()">Home</button>
+
+     <button class="dropbtn" (click)="logout()">Login</button>
+    </div>
 </mat-toolbar>

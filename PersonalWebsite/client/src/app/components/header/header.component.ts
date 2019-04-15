@@ -10,23 +10,42 @@ import { CookieService } from "ngx-cookie-service";
 })
 export class HeaderComponent implements OnInit {
   user: string;
+  photoPath: string;
    constructor(
     private userService: UserService,
     private router: Router,
     private cookieService: CookieService
   ) {
-    if (cookieService.get("domainSource") === cookieService.get("domainDest")) {
+    if (cookieService.get("domainSource") === cookieService.get("domainDest")&&cookieService.get("domainSource")!='') {
       this.user = "admin";
+      this.userService.getInfo(cookieService.get("domainSource")).subscribe(
+        val => {
+          this.photoPath = "http://localhost:8080/"+ val['photoPath'];
+          },
+        error => {
+           if (error.status === 404) {
+            console.log("No domain name");
+           }
+        }
+      );
     } else {
       this.user = "visitor";
     }
   }
 
   ngOnInit() {
-    const logoutButton = document.getElementById("btn");
-    logoutButton.addEventListener("click", () => {
-      this.userService.userLogout();
-      this.router.navigate(["/login"]);
-    });
+ 
+  }
+  dashboard(){
+    this.router.navigate(["/dashboard"]);
+
+  }
+  logout(){
+    this.userService.userLogout();
+    this.router.navigate(["/login"]);
+  }
+  home(){
+    this.router.navigate(["/"+this.cookieService.get("domainDest")]);
+
   }
 }

@@ -4,8 +4,8 @@ var express = require("express");
 var cors = require("cors"); // for connection between back end and front end
 var app = express();
 app.use(cors());
-app.set("view engine", "ejs"); //the default ejs path is ./views
-app.use(express.static("public")); //the default path for static resources is ./public
+// app.use(express.static("public")); //the default path for static resources is ./public
+ app.use(express.static("uploads")); //the default path for static resources is ./public
 
 const session = require("express-session");
 app.use(

@@ -34,7 +34,7 @@ export class Template1Component implements OnInit {
    }
 
    resume(){
-       this.router.navigate(['/resume1']);
+       this.router.navigate(['/resume']);
    }
 
  
