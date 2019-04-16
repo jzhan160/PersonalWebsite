@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
-import {MatSnackBar} from '@angular/material';
-import {RepoService} from '../../entity/repo/repo.service'
+import { MatSnackBar } from '@angular/material';
+import { RepoService } from '../../entity/repo/repo.service'
 
 
 const uri = 'http://localhost:8080/repo/upload'
@@ -16,33 +16,18 @@ export class ManageRepoComponent implements OnInit {
 
   private folders: any = [];
   private files: any = [];
+  private code:any;
+  //TODO: this.cookieService.get('domainSource'),
+  private curPath = "testDomain";
+
 
   constructor(private snackBar: MatSnackBar, private repoService: RepoService) {
 
   }
 
   ngOnInit() {
-    //TODO: this.cookieService.get('domainSource'),
-    this.repoService.getFoldersList('testDomain').subscribe(
-      val => {
-        this.folders = val;
-        console.log(this.folders);
-      },
-      error =>{
-        console.log(error);
-      }
-    );
-    
-    //TODO: this.cookieService.get('domainSource'),
-    this.repoService.getFileList('testDomain').subscribe(
-      val => {
-        this.files = val;
-        console.log(this.files);
-      },
-      error =>{
-        console.log(error);
-      }
-    );
+    this.code = "class Solution";
+    this.getAllFiles(this.curPath);
 
     this.uploader.onAfterAddingFile = file => {
       file.withCredentials = false;
@@ -52,22 +37,69 @@ export class ManageRepoComponent implements OnInit {
 
 
     this.uploader.onSuccessItem = (item: any, response: any, status: any, headers: any) => {
-      this.snackBar.open('Added Successfully!', 'Dismiss',{
+      this.snackBar.open('Added Successfully!', 'Dismiss', {
         duration: 2000
       });
     }
     this.uploader._onErrorItem = (item: any, response: any, status: any, headers: any) => {
-      this.snackBar.open('Something wrong!', 'Dismiss',{
+      this.snackBar.open('Something wrong!', 'Dismiss', {
         duration: 2000
       });
     }
   }
 
-  onSubmit(){
+  onSubmit() {
     this.uploader.uploadAll()
   }
 
-  onSwitchFolder(){
-    alert('todo');
+  //invoked when click the folder name 
+  onSwitchFolder(folder) {
+    this.curPath = this.curPath + '/' + folder;
+    this.getAllFiles(this.curPath);
+  }
+
+  //return to the father level
+  onGoBack() {
+    //TODO: this.cookieService.get('domainSource'),
+    if (this.curPath == 'testDomain') {
+      this.snackBar.open('Currently in the highest directory!', 'Dismiss', {
+        duration: 2000
+      });
+      return;
+    }
+    this.curPath = this.curPath.substr(0, this.curPath.length - this.curPath.split('/').pop().length - 1);
+    console.log(this.curPath);
+    this.getAllFiles(this.curPath);
+  }
+
+  //refresh current directory
+  onRefreash() {
+    this.getAllFiles(this.curPath);
+  }
+
+  onShowFileContent(fileName){
+
+  }
+
+  //a private funtion
+  getAllFiles(path) {
+    this.repoService.getFoldersList(path).subscribe(
+      val => {
+        this.folders = val;
+        console.log(this.folders);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    this.repoService.getFileList(path).subscribe(
+      val => {
+        this.files = val;
+        console.log(this.files);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }
