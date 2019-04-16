@@ -9,7 +9,7 @@ import {
 } from "ng2-file-upload/ng2-file-upload";
 import { DomSanitizer } from "@angular/platform-browser";
 
-const URL = "http://localhost:8080/file/upload";
+const URL = "http://localhost:8080/file/upload"; //contoller url
 
 @Component({
   selector: "app-info",
@@ -98,6 +98,8 @@ export class InfoComponent implements OnInit {
     this.address = address;
     this.phone = phone;
     this.uploader.uploadAll();
+
+    console.log("uploada;");
   }
 
   fileChange(e) {

@@ -9,7 +9,7 @@ router.use(bodyParser.json());
 
 var DB = require("../db/db.js");
 
-router.post("/do_register", function(req, res) {
+router.post("/do_register", function (req, res) {
   var email = req.body.email;
   var password = md5(req.body.password);
   console.log("do_register");
@@ -18,7 +18,7 @@ router.post("/do_register", function(req, res) {
     {
       email: email
     },
-    function(error, data) {
+    function (error, data) {
       if (error) {
         console.log(error);
       }
@@ -31,7 +31,7 @@ router.post("/do_register", function(req, res) {
             email: email,
             password: password
           },
-          function(err, data) {
+          function (err, data) {
             res.status(200).json({ user: "Added successfully" });
           }
         );
@@ -40,18 +40,18 @@ router.post("/do_register", function(req, res) {
   );
 });
 
-router.post("/login", function(req, res) {
+router.post("/login", function (req, res) {
   res.status(401).json({ user: "unauthorizied" });
 });
 
-router.post("/searchDomainName", function(req, res) {
+router.post("/searchDomainName", function (req, res) {
   var domainName = req.body.domainName;
   DB.find(
     "users",
     {
       domainName: domainName
     },
-    function(error, data) {
+    function (error, data) {
       if (error) {
         console.log(error);
       }
@@ -71,7 +71,7 @@ router.post("/searchDomainName", function(req, res) {
   );
 });
 
-router.post("/do_login", function(req, res) {
+router.post("/do_login", function (req, res) {
   var email = req.body.email;
   var password = md5(req.body.password);
   console.log("login");
@@ -81,7 +81,7 @@ router.post("/do_login", function(req, res) {
       email: email,
       password: password
     },
-    function(error, data) {
+    function (error, data) {
       if (error) {
         console.log(error);
       }
@@ -102,31 +102,26 @@ router.post("/do_login", function(req, res) {
   );
 });
 
-router.get("/index", function(req, res) {
-  res.render("index");
-});
 
-router.get("/logout", function(req, res) {
+
+router.get("/logout", function (req, res) {
   req.session.domainName = null;
   res.status(200).json({ user: "Logout" });
 });
 
 
-router.post("/submit_info", function(req, res) {
-  //get the info from the request and store it in db
-  //console.log(req.body);
+router.post("/submit_info", function (req, res) {
+  console.log("info")
   var email = req.body.email; //insert by email
   var templateId = req.body.templateId;
   var username = req.body.username;
   var domainName = req.body.domainName;
-
   //create a folder for project
   fs.mkdir('./user_repo/' + domainName);
-  
   var address = req.body.address;
   var phone = req.body.phone;
-  var path = "./upload/" + domainName + "/" + req.body.filename;
-  moveFile(req.body.path,req.body.filename,domainName);
+  var path = domainName + "/" + req.body.filename;
+  moveFile(req.body.path, req.body.filename, domainName);
   DB.update(
     "users",
     {
@@ -140,25 +135,24 @@ router.post("/submit_info", function(req, res) {
       phone: phone,
       templateId: templateId
     },
-    
-    function(err, data) {
+
+    function (err, data) {
       req.session.domainName = domainName;
       res.status(200).json({ user: "info completed" });
     }
   );
 });
 
-
 function moveFile(originalPath, filename, domainName) {
   dest = "./uploads/" + domainName;
   if (!fs.exists(dest)) {
     fs.mkdir(dest);
   }
-  fs.rename(originalPath, dest + "/" + filename, function(err) {
-    if (err){
+  fs.rename(originalPath, dest + "/" + filename, function (err) {
+    if (err) {
       console.log(err);
     }
-    fs.stat(dest + "/" + filename, function(err, stats) {
+    fs.stat(dest + "/" + filename, function (err, stats) {
       if (err) {
         console.log(err);
       }
@@ -166,7 +160,30 @@ function moveFile(originalPath, filename, domainName) {
   });
 }
 
+router.post("/getInfo", function (req, res) {
+  var domainName = req.body.domainName;
+  console.log(domainName);
+  DB.find(
+    "users",
+    {
+      domainName: domainName
+    },
+    function (error, data) {
+      if (error) {
+        console.log(error);
+      }
+      if (data.length > 0) {
+        console.log(data[0].photoPath);
 
- 
+        res.status(200).json({
+          photoPath: data[0].photoPath
+        });
+      } else {
+        res.status(404).json({ user: "No domain name" });
+      }
+    }
+  );
+}
+);
 
 module.exports = router;

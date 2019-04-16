@@ -38,7 +38,6 @@ export class UserService {
   userLogout(){
     this.cookieService.set('domainSource','');
     this.cookieService.set('domainDest','');
-
     return this.http.get(`${this.uri}/logout`);
   }
 
@@ -55,6 +54,12 @@ export class UserService {
       };
       return this.http.post(`${this.uri}/submit_info`, user);
   }
-
+  
+  getInfo(dname){
+    const domainName = {
+      domainName: dname
+     };
+    return this.http.post(`${this.uri}/getInfo`, domainName);
+  }
  
 }
