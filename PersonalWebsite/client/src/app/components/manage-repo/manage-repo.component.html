@@ -2,3 +2,22 @@
 <h4>.zip file only</h4>
 <input type = "file" name = "fileUpload" id = "fileUpload"  ng2FileSelect [uploader] = "uploader">
 <button type="button" (click) = "onSubmit()">Upload</button>
+
+<h1>Files</h1>
+<mat-list>
+        <h3 mat-subheader>Folders</h3>
+        <mat-list-item *ngFor="let folder of folders">
+          <mat-icon mat-list-icon >folder</mat-icon>
+          <h4 mat-line (click)="onSwitchFolder()">
+              {{folder.name}}
+            </h4>
+          <!-- <p mat-line> {{folder.updated | date}} </p> -->
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 mat-subheader>files</h3>
+        <mat-list-item *ngFor="let file of files">
+          <mat-icon mat-list-icon>note</mat-icon>
+          <h4 mat-line >{{file.name}}</h4>
+          <!-- <p mat-line> {{note.updated | date}} </p> -->
+        </mat-list-item>
+    </mat-list>

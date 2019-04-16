@@ -19,7 +19,7 @@ router.post('/add', function (req, res) {
 });
 
 router.post('/get', function(req,res){
-    console.log(1);
+    console.log('get store list');
     const domain = req.body.domain;
      DB.find('story',{
         domain: domain

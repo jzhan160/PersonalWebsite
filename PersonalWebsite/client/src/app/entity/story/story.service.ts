@@ -12,7 +12,7 @@ export class StoryService {
 
   addStory(title, content, urlPath){
     const story = {
-      domain: 'testDomain', //this.cookieService.get('domainSource'),
+      domain: 'testDomain', //TODO:this.cookieService.get('domainSource'),
       title: title,
       content: content,
       urlPath: urlPath,

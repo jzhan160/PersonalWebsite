@@ -25,6 +25,7 @@
     "mongodb": "^2.2.36",
     "mongoose": "^5.1.6",
     "multer": "^1.4.1",
-    "silly-datetime": "^0.1.2"
+    "silly-datetime": "^0.1.2",
+    "unzip2": "^0.2.5"
   }
 }

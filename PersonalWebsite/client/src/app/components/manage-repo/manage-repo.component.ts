@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 import {MatSnackBar} from '@angular/material';
+import {RepoService} from '../../entity/repo/repo.service'
+
 
 const uri = 'http://localhost:8080/repo/upload'
 @Component({
@@ -12,13 +14,36 @@ export class ManageRepoComponent implements OnInit {
 
   uploader: FileUploader = new FileUploader({ url: uri });
 
-  attachmentList: any = [];
+  private folders: any = [];
+  private files: any = [];
 
+  constructor(private snackBar: MatSnackBar, private repoService: RepoService) {
 
-  constructor(private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
+    //TODO: this.cookieService.get('domainSource'),
+    this.repoService.getFoldersList('testDomain').subscribe(
+      val => {
+        this.folders = val;
+        console.log(this.folders);
+      },
+      error =>{
+        console.log(error);
+      }
+    );
+    
+    //TODO: this.cookieService.get('domainSource'),
+    this.repoService.getFileList('testDomain').subscribe(
+      val => {
+        this.files = val;
+        console.log(this.files);
+      },
+      error =>{
+        console.log(error);
+      }
+    );
+
     this.uploader.onAfterAddingFile = file => {
       file.withCredentials = false;
       //TODO:this.cookieService.get('domainSource')
@@ -32,7 +57,7 @@ export class ManageRepoComponent implements OnInit {
       });
     }
     this.uploader._onErrorItem = (item: any, response: any, status: any, headers: any) => {
-      this.snackBar.open('something wrong!', 'Dismiss',{
+      this.snackBar.open('Something wrong!', 'Dismiss',{
         duration: 2000
       });
     }
@@ -42,4 +67,7 @@ export class ManageRepoComponent implements OnInit {
     this.uploader.uploadAll()
   }
 
+  onSwitchFolder(){
+    alert('todo');
+  }
 }

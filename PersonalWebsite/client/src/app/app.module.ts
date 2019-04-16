@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule,
    MatSelectModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule,
-    MatDividerModule, MatSnackBarModule, MatMenuModule } from '@angular/material';
+    MatDividerModule, MatSnackBarModule, MatMenuModule,MatListModule } from '@angular/material';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -46,6 +46,7 @@ import { DisplayStoryComponent } from './components/display-story/display-story.
 import { MessageComponent } from './components/message/message.component';
 import { DisplayMessageComponent } from './components/display-message/display-message.component';
 import { RepositoryComponent } from './components/repository/repository.component';
+import {RepoService} from './entity/repo/repo.service'
 
   // reflect urls to components
 const routes: Routes = [
@@ -114,10 +115,11 @@ const routes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     MatMenuModule,
+    MatListModule,
     BsDropdownModule.forRoot(),
 
   ],
-  providers: [UserService,CookieService,WebStatsService,StoryService],
+  providers: [UserService,CookieService,WebStatsService,StoryService,RepoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
