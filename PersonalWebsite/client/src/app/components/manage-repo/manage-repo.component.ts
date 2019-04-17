@@ -18,8 +18,8 @@ export class ManageRepoComponent implements OnInit {
   private files: any = [];
   private fileContent:any;
   private shownFileName:any;
-  //TODO: this.cookieService.get('domainSource'),
-  private curPath = "testDomain";
+
+  private curPath = this.cookieService.get('domainSource');
 
 
   constructor(private snackBar: MatSnackBar, private repoService: RepoService, private cookieService: CookieService) {
@@ -29,10 +29,10 @@ export class ManageRepoComponent implements OnInit {
   ngOnInit() {
     this.getAllFiles(this.curPath);
     this.shownFileName = 'No file selected.';
+
     this.uploader.onAfterAddingFile = file => {
       file.withCredentials = false;
-      //TODO:this.cookieService.get('domainSource')
-      file.file.name = 'testDomain.' + file.file.name;
+      file.file.name =this.cookieService.get('domainSource') + '.' + file.file.name;
     };
 
 
@@ -60,8 +60,7 @@ export class ManageRepoComponent implements OnInit {
 
   //return to the father level
   onGoBack() {
-    //TODO: this.cookieService.get('domainSource'),
-    if (this.curPath == 'testDomain') {
+    if (this.curPath == this.cookieService.get('domainSource')) {
       this.snackBar.open('Currently in the highest directory!', 'Dismiss', {
         duration: 2000
       });

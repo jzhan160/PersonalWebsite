@@ -16,7 +16,6 @@ router.post('/showFolderList', function (req, res) {
     const pathName = './user_repo/' + req.body.path;
     console.log(pathName);
     var dirs = [];
-    const fs = require('fs');
     try {
         fs.readdirSync(pathName).forEach((file) => {
             let stat = fs.lstatSync(pathName + '/' + file)
@@ -78,6 +77,9 @@ router.post('/upload', function (req, res) {
         }
         //unzip the file
         //project Name: the zip filename without extension
+        if(fileName.split('.').pop() != 'zip'){
+            return res.json({ msg: 'upload successfully!' })
+        }
         var projectName = fileName.substr(0, fileName.length - 4);
         fs.createReadStream(filePath + '/' + fileName).pipe(unzip.Extract({
             path: filePath + '/' + projectName
