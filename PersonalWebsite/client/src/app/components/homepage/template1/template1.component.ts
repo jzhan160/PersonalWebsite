@@ -37,7 +37,12 @@ export class Template1Component implements OnInit {
        this.router.navigate(['/resume']);
    }
 
- 
+   story(){
+     this.router.navigate(['/story']);
+   }
 
+   repository(){
+     this.router.navigate(['/repository']);
+   }
 
 }

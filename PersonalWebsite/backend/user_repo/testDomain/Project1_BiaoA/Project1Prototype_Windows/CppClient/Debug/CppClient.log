@@ -1,7 +1,0 @@
-﻿  UsingComp_i.c
-  HelperComp_i.c
-  Generating Code...
-  CppClient.cpp
-c:\users\biao a\documents\studu\775\a_project\project1prototype_windows\cppclient\cppclient.cpp(49): warning C4018: '<': signed/unsigned mismatch
-  CppClient.vcxproj -> C:\Users\Biao A\Documents\studu\775\A_Project\Project1Prototype_Windows\Debug\CppClient.exe
-  CppClient.vcxproj -> C:\Users\Biao A\Documents\studu\775\A_Project\Project1Prototype_Windows\Debug\CppClient.pdb (Partial PDB)

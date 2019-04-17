@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 import { MatSnackBar } from '@angular/material';
 import { RepoService } from '../../entity/repo/repo.service'
-
+import { CookieService } from "ngx-cookie-service";
 
 const uri = 'http://localhost:8080/repo/upload'
 @Component({
@@ -22,7 +22,7 @@ export class ManageRepoComponent implements OnInit {
   private curPath = "testDomain";
 
 
-  constructor(private snackBar: MatSnackBar, private repoService: RepoService) {
+  constructor(private snackBar: MatSnackBar, private repoService: RepoService, private cookieService: CookieService) {
 
   }
 

@@ -1,3 +1,59 @@
-<h1>Project Upload</h1>
-<input type = "file" (change) = "onFileSelected($event)">
-<button type="button" (click) = "onUpload()">Upload</button>
+<app-header></app-header>
+<div style="margin-left: 100px; margin-top: 30px; width: 500px;  float:left;">
+    <div style="overflow:hidden">
+      <h1 style="float: left; margin-right: 10px">Repository</h1>
+      <button mat-raised-button style="float: left; margin-top: 25px" (click)="onRefreash()" color="600">
+        <i class="material-icons">
+          cached
+        </i>
+      </button>
+  
+    </div>
+  
+    <div style="height: 500px; width: 500px;">
+      <mat-action-list>
+        <h3 mat-subheader>Folders</h3>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <h4 mat-line (click)="onGoBack()">
+            ...
+          </h4>
+          <!-- <p mat-line> {{folder.updated | date}} </p> -->
+        </mat-list-item>
+  
+        <mat-list-item *ngFor="let folder of folders" (click)="onSwitchFolder(folder.name)">
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <h4 mat-line >
+            {{folder.name}}
+          </h4>
+          <!-- <p mat-line> {{folder.updated | date}} </p> -->
+        </mat-list-item>
+  
+  
+        <mat-divider style="width: 500px"></mat-divider>
+        <h3 mat-subheader>files</h3>
+        <mat-list-item *ngFor="let file of files" (click)="onShowFileContent(file.name)">
+          <mat-icon mat-list-icon>note</mat-icon>
+          <h4 mat-line>{{file.name}}</h4>
+          <!-- <p mat-line> {{note.updated | date}} </p> -->
+        </mat-list-item>
+      </mat-action-list>
+    </div>
+  
+  </div>
+  
+  <div style="margin-left: 100px; margin-top: 30px; width: 700px; float:left;">
+      <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{shownFileName}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+              <code style="white-space: pre-line">
+                {{fileContent}}
+              </code>
+          </mat-card-content>
+        </mat-card>
+        <pre>
+            
+        </pre>
+  </div>

@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
   <h4> Recent Stories</h4>
 
@@ -19,8 +20,6 @@
     <mat-card-actions>
       <button mat-button>LIKEs</button>
       <button mat-button>Comments</button>
-      <button mat-button>Add</button>
-      <button mat-button>Delete</button>
     </mat-card-actions>
   </mat-expansion-panel>
 
@@ -39,8 +38,6 @@
     <mat-card-actions>
       <button mat-button>LIKEs</button>
       <button mat-button>Comments</button>
-      <button mat-button (click)="onAdd(s._id, s.createTime)" >Add</button>
-      <button mat-button (click)="onDelete(s._id)" >Delete</button>
     </mat-card-actions>
   </mat-expansion-panel>
 

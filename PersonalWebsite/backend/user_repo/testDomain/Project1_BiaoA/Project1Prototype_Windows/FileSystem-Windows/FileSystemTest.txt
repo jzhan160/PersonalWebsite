@@ -1,4 +1,0 @@
-first line of FileSystemTest.txt
-
-
-fourth line

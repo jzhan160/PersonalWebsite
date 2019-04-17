@@ -43,12 +43,15 @@ import { DisplayStoryComponent } from './components/display-story/display-story.
 import { MessageComponent } from './components/message/message.component';
 import { DisplayMessageComponent } from './components/display-message/display-message.component';
 import { RepositoryComponent } from './components/repository/repository.component';
-import {RepoService} from './entity/repo/repo.service'
+import {RepoService} from './entity/repo/repo.service';
+import { StoryComponent } from './components/story/story.component'
 
   // reflect urls to components
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'resume', component: ResumeTemplate1Component},
+  {path: 'story', component: StoryComponent},
+  {path: 'repository', component: RepositoryComponent},
    {path: 'dashboard', component : DashboardComponent},
   {path: 'htest', component : HistoryComponent},
   {path: 'init_style', component: StyleComponent},
@@ -82,7 +85,8 @@ const routes: Routes = [
     DisplayStoryComponent,
     MessageComponent,
     DisplayMessageComponent,
-    RepositoryComponent
+    RepositoryComponent,
+    StoryComponent
    ],
   imports: [
     MatExpansionModule,

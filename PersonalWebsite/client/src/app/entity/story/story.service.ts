@@ -12,7 +12,7 @@ export class StoryService {
 
   addStory(title, content, urlPath){
     const story = {
-      domain: 'testDomain', //TODO:this.cookieService.get('domainSource'),
+      domain:this.cookieService.get('domainSource'),
       title: title,
       content: content,
       urlPath: urlPath,
@@ -23,13 +23,12 @@ export class StoryService {
 
   getStoryList(){
     const domain = {
-      domain: 'testDomain' //this.cookieService.get('domainSource'),
+      domain: this.cookieService.get('domainSource'),
     }
     return this.http.post(`${this.uri}/get`, domain);
   }
 
   deleteStory(id){
-    console.log(222222);
     const story = {
       id: id
     }

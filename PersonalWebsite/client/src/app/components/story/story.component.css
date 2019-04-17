@@ -1,0 +1,15 @@
+.container{
+    margin-top: 40px;
+    margin-left: 200px;
+    height: 900px;
+}
+.example-card {
+    margin-top: 20px;
+    margin-right: 100px;
+    width: 600px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
