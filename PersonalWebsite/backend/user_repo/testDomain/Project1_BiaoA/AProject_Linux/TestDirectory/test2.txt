@@ -1,5 +1,0 @@
-dog
-cat
-love
-love dogs
-love cats

@@ -1,1 +1,0 @@
-g++ -g ./Client/Client.cpp -o  ./a.out
