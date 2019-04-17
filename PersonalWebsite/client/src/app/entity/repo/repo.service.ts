@@ -24,5 +24,12 @@ export class RepoService {
     return this.http.post(`${this.uri}/showFileList`, req);
   }
 
+  getFileContent(path){
+    const req = {
+      filePath: path
+    }
+    return this.http.post(`${this.uri}/showFileContent`, req);
+  }
+
 
 }

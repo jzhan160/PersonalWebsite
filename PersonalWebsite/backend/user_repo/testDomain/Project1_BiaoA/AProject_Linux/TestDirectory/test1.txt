@@ -1,0 +1,5 @@
+love
+dog
+don't love
+cat
+dog and cat

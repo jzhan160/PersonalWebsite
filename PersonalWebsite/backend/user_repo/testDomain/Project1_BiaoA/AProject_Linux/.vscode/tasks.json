@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label":"build",
+            "type": "shell",
+            "command":"g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}/Client/Client.cpp",
+                "-o",
+                "build"
+            ]
+        },
+    ]
+}

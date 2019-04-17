@@ -16,7 +16,8 @@ export class ManageRepoComponent implements OnInit {
 
   private folders: any = [];
   private files: any = [];
-  private code:any;
+  private fileContent:any;
+  private shownFileName:any;
   //TODO: this.cookieService.get('domainSource'),
   private curPath = "testDomain";
 
@@ -26,9 +27,8 @@ export class ManageRepoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.code = "class Solution";
     this.getAllFiles(this.curPath);
-
+    this.shownFileName = 'No file selected.';
     this.uploader.onAfterAddingFile = file => {
       file.withCredentials = false;
       //TODO:this.cookieService.get('domainSource')
@@ -77,8 +77,25 @@ export class ManageRepoComponent implements OnInit {
     this.getAllFiles(this.curPath);
   }
 
+  //show file content when click on it
   onShowFileContent(fileName){
-
+    const ex = fileName.split('.').pop();
+    if(ex != 'cpp' && ex != 'h' && ex != 'cs' && ex != 'txt' && ex != 'h'){
+      this.snackBar.open('Currently don\'t support this type of file', 'Dismiss', {
+        duration: 2000
+      });
+      return;
+    }
+    this.repoService.getFileContent(this.curPath + '/' + fileName).subscribe(
+      val =>{
+        this.shownFileName = fileName;
+       this.fileContent = val;
+      },
+      err =>{
+        this.snackBar.open(err, 'Dismiss', {
+          duration: 2000
+        });
+      })
   }
 
   //a private funtion
