@@ -98,5 +98,36 @@ router.post('/showFileContent', function (req, res) {
     });
 })
 
+router.post('/delFolder', function (req, res) {
+    console.log('del Folder');
+    const filePath = './user_repo/' + req.body.filePath;
+    console.log(filePath);
+    var rimraf = require("rimraf");
+    rimraf.sync(filePath);
+    res.status(200).json({msg: 'deleted successfully!'});
+})
+
+router.post('/delFile', function (req, res) {
+    console.log('del File');
+    const filePath = './user_repo/' + req.body.filePath;
+    console.log(filePath);
+
+    fs.unlink(filePath, (err) => {
+        if (err){
+            res.status(501).json({msg: err});
+            return;
+        }
+        res.status(200).json({msg: 'deleted successfully!'});
+      });
+})
+
+router.post('/downloadFile', function (req, res) {
+    console.log('download File');
+    const filePath = './user_repo/' + req.body.filePath;
+    console.log(filePath);
+    res.sendfile(filePath);
+})
+
+
 
 module.exports = router

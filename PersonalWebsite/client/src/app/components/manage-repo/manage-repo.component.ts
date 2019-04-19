@@ -3,6 +3,7 @@ import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 import { MatSnackBar } from '@angular/material';
 import { RepoService } from '../../entity/repo/repo.service'
 import { CookieService } from "ngx-cookie-service";
+import { saveAs } from "file-saver"
 
 const uri = 'http://localhost:8080/repo/upload'
 @Component({
@@ -40,6 +41,7 @@ export class ManageRepoComponent implements OnInit {
       this.snackBar.open('Added Successfully!', 'Dismiss', {
         duration: 2000
       });
+      this.getAllFiles(this.curPath);
     }
     this.uploader._onErrorItem = (item: any, response: any, status: any, headers: any) => {
       this.snackBar.open('Something wrong!', 'Dismiss', {
@@ -79,7 +81,7 @@ export class ManageRepoComponent implements OnInit {
   //show file content when click on it
   onShowFileContent(fileName){
     const ex = fileName.split('.').pop();
-    if(ex != 'cpp' && ex != 'h' && ex != 'cs' && ex != 'txt' && ex != 'h'){
+    if(ex != 'cpp' && ex != 'h' && ex != 'cs' && ex != 'txt' && ex != 'h' && ex != 'sln'){
       this.snackBar.open('Currently don\'t support this type of file', 'Dismiss', {
         duration: 2000
       });
@@ -87,7 +89,7 @@ export class ManageRepoComponent implements OnInit {
     }
     this.repoService.getFileContent(this.curPath + '/' + fileName).subscribe(
       val =>{
-        this.shownFileName = fileName;
+        this.shownFileName = this.curPath + '/' + fileName;
        this.fileContent = val;
       },
       err =>{
@@ -95,6 +97,45 @@ export class ManageRepoComponent implements OnInit {
           duration: 2000
         });
       })
+  }
+
+
+  //delete folder
+  onDeleteFolder(folderName){
+    this.repoService.delFolder(this.curPath + '/' + folderName).subscribe(
+      val => {
+        this.snackBar.open('Deleted folder ' + folderName +  ' successfully', 'Dismiss', {
+          duration: 2000
+        });
+        this.getAllFiles(this.curPath);
+      }
+    )
+  }
+
+  onDeleteFile(fileName){
+    this.repoService.delFile(this.curPath + '/' + fileName).subscribe(
+      val => {
+        this.snackBar.open('Deleted file ' + fileName +  ' successfully', 'Dismiss', {
+          duration: 2000
+        });
+        this.getAllFiles(this.curPath);
+      }
+    )
+  }
+
+
+  onDownloadFile(fileName){
+    this.repoService.downloadFile(this.curPath + '/' + fileName).subscribe(
+      data => {
+        saveAs(data, fileName);
+      },
+      err => {
+        console.log(err);
+        this.snackBar.open("Problem while downloading the file.", 'Dismiss', {
+          duration: 2000 
+        });
+      }
+    );
   }
 
   //a private funtion

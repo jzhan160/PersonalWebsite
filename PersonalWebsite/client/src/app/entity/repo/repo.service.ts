@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpResponse } from '@angular/common/http';3
+import { HttpClient,HttpResponse, HttpHandler, HttpHeaders } from '@angular/common/http';3
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -31,5 +31,27 @@ export class RepoService {
     return this.http.post(`${this.uri}/showFileContent`, req);
   }
 
+  delFolder(path){
+    const req = {
+      filePath: path
+    }
+    return this.http.post(`${this.uri}/delFolder`, req);
+  }
+  
+  delFile(filePath){
+    const req = {
+      filePath: filePath
+    }
+    return this.http.post(`${this.uri}/delFile`, req);
+  }
 
+  downloadFile(filePath){
+    const req = {
+      filePath: filePath
+    }
+    return this.http.post(`${this.uri}/downloadFile`, req, {
+      responseType: 'blob',
+      headers: new HttpHeaders().append('Content-type', 'application/json')
+    });
+  }
 }
