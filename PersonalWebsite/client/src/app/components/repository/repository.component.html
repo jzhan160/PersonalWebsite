@@ -32,9 +32,14 @@
   
         <mat-divider style="width: 500px"></mat-divider>
         <h3 mat-subheader>files</h3>
-        <mat-list-item *ngFor="let file of files" (click)="onShowFileContent(file.name)">
+        <mat-list-item *ngFor="let file of files" >
           <mat-icon mat-list-icon>note</mat-icon>
-          <h4 mat-line>{{file.name}}</h4>
+          <h4 mat-line (click)="onShowFileContent(file.name)">{{file.name}}</h4>
+          <button mat-raised-button *ngIf="file.name.split('.').pop() == 'zip'" (click)="onDownloadFile(file.name)">
+              <i class="material-icons">
+                  cloud_download
+              </i>
+            </button>
           <!-- <p mat-line> {{note.updated | date}} </p> -->
         </mat-list-item>
       </mat-action-list>

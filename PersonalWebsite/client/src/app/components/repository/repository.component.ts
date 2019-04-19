@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from "ngx-cookie-service";
 import { MatSnackBar } from '@angular/material';
 import {RepoService} from '../../entity/repo/repo.service'
+import {saveAs} from 'file-saver'
 
 @Component({
   selector: 'app-repository',
@@ -54,7 +55,7 @@ export class RepositoryComponent implements OnInit {
   //show file content when click on it
   onShowFileContent(fileName){
     const ex = fileName.split('.').pop();
-    if(ex != 'cpp' && ex != 'h' && ex != 'cs' && ex != 'txt' && ex != 'h'){
+    if(ex != 'cpp' && ex != 'h' && ex != 'cs' && ex != 'txt' && ex != 'h' && ex != 'sln'){
       this.snackBar.open('Currently don\'t support this type of file', 'Dismiss', {
         duration: 2000
       });
@@ -72,6 +73,21 @@ export class RepositoryComponent implements OnInit {
       })
   }
 
+
+  onDownloadFile(fileName){
+    this.repoService.downloadFile(this.curPath + '/' + fileName).subscribe(
+      data => {
+        saveAs(data, fileName);
+      },
+      err => {
+        console.log(err);
+        this.snackBar.open("Problem while downloading the file.", 'Dismiss', {
+          duration: 2000 
+        });
+      }
+    );
+  }
+  
   //a private funtion
   getAllFiles(path) {
     this.repoService.getFoldersList(path).subscribe(
