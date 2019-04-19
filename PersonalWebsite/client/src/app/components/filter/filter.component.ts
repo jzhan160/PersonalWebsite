@@ -11,13 +11,25 @@ import { CookieService } from "ngx-cookie-service";
 })
 export class FilterComponent implements OnInit{
   public templateId;
-
   constructor(
     private router: Router,
     private location: PlatformLocation,
     private userService: UserService,
     private cookieService: CookieService
-   ) {}
+   ) {
+     if(cookieService.get('domainSource')==''){
+       console.log("current cookie is null");
+          userService.getSession().subscribe(
+            val=>{
+                cookieService.set('domainSource',val['domainName']);
+                console.log(cookieService.get('domainSource'));
+            },
+            error=>{
+               
+            }
+          )
+     }
+   }
   ngOnInit() {
     let url;
     for (const i in this.location) {
@@ -32,8 +44,6 @@ export class FilterComponent implements OnInit{
       val => {
         this.cookieService.set('domainDest', domainName);
         this.templateId = val['templateId'];
-        //const homeURL = '/home' + this.templateId;
-        //this.router.navigate([homeURL]);
       },
       error => {
          if (error.status === 404) {

@@ -8,7 +8,6 @@ import { Router } from "@angular/router";
   styleUrls: ['./template2.component.css']
 })
 export class Template2Component implements OnInit {
-
   domainName: string;
   username: string;
   text: string;
@@ -35,6 +34,14 @@ export class Template2Component implements OnInit {
 
    resume(){
        this.router.navigate(['/resume']);
+   }
+
+   story(){
+     this.router.navigate(['/story']);
+   }
+
+   repository(){
+     this.router.navigate(['/repository']);
    }
 
 }

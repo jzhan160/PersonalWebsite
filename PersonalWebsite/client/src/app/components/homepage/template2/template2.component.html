@@ -5,19 +5,14 @@
     <div class="row">
       <div class="col-md-12">
         <div class="welcome-content text-center">
-          <img
-            src=""
-            class="img-thumbnail img-circle"
-            width="150px"
-            height="150px"
-          />
-          <h1>Jiacheng Zhang</h1>
+    
+          <h1>{{username}}</h1>
           <h2>Computer Software Developer</h2>
           <p>To know more about me please click on the below buttons</p>
           <p>
             <a  (click)="resume()"   class="btn btn-primary social-button">Resume</a>
-            <a href=""   class="btn btn-primary social-button">Repository</a>
-            <a href=""  class="btn btn-primary social-button">Story</a>
+            <a (click)="repository()"   class="btn btn-primary social-button">Repository</a>
+            <a (click)="story()"  class="btn btn-primary social-button">Story</a>
           </p>
         </div>
       </div>

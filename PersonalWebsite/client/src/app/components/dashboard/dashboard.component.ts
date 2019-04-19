@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DisplayStoryComponent } from '../display-story/display-story.component';
+import { UserService } from "../../entity/user/user.service";
+import { CookieService } from "ngx-cookie-service";
 
 
 @Component({
@@ -13,8 +15,21 @@ export class DashboardComponent implements OnInit {
   childDisplayStory: DisplayStoryComponent;
 
   showNum = 4;
-
-  constructor() { }
+  photoPath = "";
+  username = "";
+  constructor(private userService: UserService, private cookieService: CookieService) { 
+    this.userService.getInfo(cookieService.get("domainSource")).subscribe(
+      val => {
+        this.photoPath = "http://localhost:8080/"+ val['photoPath'];
+        this.username = val['username'];
+        },
+      error => {
+         if (error.status === 404) {
+          console.log("No domain name");
+         }
+      }
+    );
+  }
 
   ngOnInit() {
 

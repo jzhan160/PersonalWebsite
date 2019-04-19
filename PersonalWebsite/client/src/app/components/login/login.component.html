@@ -11,7 +11,7 @@
 			</div>
 			<span>or use your email for registration</span>
       <input matInput placeholder="Email" formControlName="email" #emailForReg>
-      <input matInput placeholder="Password" formControlName="password" #passwordForReg>
+      <input type="password" matInput placeholder="Password" formControlName="password" #passwordForReg>
       <button type="submit" (click)=" register(emailForReg.value,passwordForReg.value)" [disabled]="registerForm.pristine || registerForm.invalid" >Sign Up</button>
 
 		</form>
@@ -25,9 +25,9 @@
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
-			<span>or use your account</span>
+			<p>or use your account</p>
       <input matInput placeholder="Email" formControlName="email" #email>
-      <input matInput placeholder="Password" formControlName="password" #password>
+      <input type="password" matInput placeholder="Password" formControlName="password" #password>
 			<a href="#">Forgot your password?</a>
       <button type="submit" (click)=" login(email.value,password.value)" [disabled]="loginForm.pristine || loginForm.invalid" >Sign In</button>
 		</form>

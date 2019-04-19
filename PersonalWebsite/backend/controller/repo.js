@@ -12,9 +12,7 @@ router.use(bodyParser.json())
 var DB = require('../db/db.js');
 
 router.post('/showFolderList', function (req, res) {
-    console.log('show folder List');
     const pathName = './user_repo/' + req.body.path;
-    console.log(pathName);
     var dirs = [];
     try {
         fs.readdirSync(pathName).forEach((file) => {
@@ -23,7 +21,6 @@ router.post('/showFolderList', function (req, res) {
                 dirs.push({ name: file });
             }
         });
-        console.log(dirs);
         res.status(200).json(dirs);
     } catch (e) {
         res.status(501).json({ msg: e });
@@ -31,9 +28,7 @@ router.post('/showFolderList', function (req, res) {
 })
 
 router.post('/showFileList', function (req, res) {
-    console.log('show file List');
     const pathName = './user_repo/' + req.body.path;
-    console.log(pathName);
     var files = [];
     try {
         fs.readdirSync(pathName).forEach((file) => {
@@ -42,8 +37,7 @@ router.post('/showFileList', function (req, res) {
                 files.push({ name: file });
             }
         });
-        console.log(files);
-        res.status(200).json(files);
+         res.status(200).json(files);
     } catch (e) {
         res.status(501).json({ msg: e });
     }
@@ -54,7 +48,6 @@ router.post('/showFileList', function (req, res) {
 
 //handle upload request
 router.post('/upload', function (req, res) {
-    console.log('upload new project');
     var filePath;
     var fileName;
     //zip file will be store in ./user_repo/_domainName

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../entity/user/user.service';
 import { CookieService } from 'ngx-cookie-service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +14,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   registerForm: FormGroup;
-  constructor(private userService: UserService, private fb: FormBuilder, private router: Router,private cookieService: CookieService) {
-   // this.userService.userLogout();
-    this.loginForm = this.fb.group({
+  constructor(private userService: UserService, private fb: FormBuilder, 
+    private router: Router,private cookieService: CookieService,
+    private snackBar: MatSnackBar) {
+     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
@@ -36,10 +38,13 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/'+session]);
         },
         error =>{
-             console.log(error);
-             console.log(error.status);
-             if (error.status === 401) {
-               console.log('username or password error!');
+              if (error.status === 401) {
+                this.snackBar.open('email or password error!', 
+                                   'Dismiss',{duration: 2000});
+               this.loginForm = this.fb.group({
+                  email: [""],
+                 password: [""],
+                });
              }
            },
     );
@@ -51,7 +56,14 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['init_style']);
        },
       error =>{
-        console.log(error);
+        if (error.status === 400) {
+           this.snackBar.open('The account existed!', 
+                              'Dismiss',{duration: 2000});
+          this.registerForm = this.fb.group({
+             email: [""],
+            password: [""],
+           });
+        }
       }
     );
   }

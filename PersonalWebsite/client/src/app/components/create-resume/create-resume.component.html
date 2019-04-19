@@ -18,7 +18,7 @@
         </div>
       </div>
     </form>
-    <div class="text-center">
+    <div >
       <button (click)="addEduRow()" class="btn btn-start-order">Add Education</button>
       <button *ngIf="eduForm.controls.eduRows.controls.length > 1" (click)="deleteEduRow(i)" class="btn btn-start-order">Delete
         Education</button>
@@ -40,7 +40,7 @@
 
     </form>
 
-    <div class="text-center">
+    <div>
       <button (click)="addExpRow()" class="btn btn-start-order">Add Experience</button>
       <button *ngIf="expForm.controls.expRows.controls.length > 1" (click)="deleteExpRow(i)" class="btn btn-start-order">Delete
         Experience</button>
@@ -57,12 +57,12 @@
         </div>
       </div>
     </form>
-    <div class="text-center">
+    <div>
       <button (click)="addSkillRow()" class="btn btn-start-order">Add Skills</button>
       <button *ngIf="skillForm.controls.skillRows.controls.length > 1" (click)="deleteSkillRow(i)" class="btn btn-start-order">Delete
         Skills</button>
     </div>
-    <div class="text-center">
+    <div>
       <button (click)="finish()" class="btn btn-start-order">Finish and generate</button>
     </div>
 

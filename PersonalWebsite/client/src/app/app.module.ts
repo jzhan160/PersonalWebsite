@@ -17,7 +17,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import {UserService} from './entity/user/user.service';
-import { IndexComponent } from './components/index/index.component';
 import {HeaderComponent} from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Template1Component } from './components/homepage/template1/template1.component';
@@ -56,7 +55,6 @@ const routes: Routes = [
   {path: 'htest', component : HistoryComponent},
   {path: 'init_style', component: StyleComponent},
   {path: 'init_info/:id', component: InfoComponent},
-  {path: 'form', component: IndexComponent },
   {path: 'dashboard/createStory', component: CreateStoryComponent},
   {path: 'messageTest', component: MessageComponent},
   {path: '**', component: FilterComponent},
@@ -66,7 +64,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    IndexComponent,
     HeaderComponent,
     FooterComponent,
     Template1Component,

@@ -20,14 +20,14 @@ h1 {
 }
 h2 {
   color: #000;
-  font-size: 1.5em;
+  font-size: 2em;
   letter-spacing: 0.07142855em;
   font-variant: small-caps;
   border-bottom: 0.07142855em solid #333;
 
 } /* 24px / 16px */
 h3 {
-  font-size: 1.25em;
+  font-size: 1.5em;
   line-height: 1.42857em;
   margin-bottom: 0.375em;
   margin-top: 0.05357em;
@@ -44,10 +44,10 @@ h4 {
 p {
   margin-bottom: 0.5em;
   margin-top: 0em;
-  font-size: 1.20em;
+  font-size: 1.5em;
 }
 p + p {
-  margin-top: 1.5em;
+  margin-top: 0.5em;
 }
 p + ul {
   margin-top: 0.75em;
@@ -88,7 +88,7 @@ header h1 {
 
 /*h3 {display: inline-block; margin-top: 0; padding-top: 0;}*/
 .time {
-  font-size: 0.75em;
+  font-size: 1em;
   font-weight: normal;
   float: right;
   margin-top: 0;
@@ -104,6 +104,7 @@ ul {
 ul li {
   list-style-type: square;
   position: relative;
+  font-size: 1.5em
 }
 .technology li {
 }

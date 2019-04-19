@@ -84,21 +84,15 @@ export class CreateResumeComponent implements OnInit {
   }
 
 finish() {
-   console.log('education: \n');
-   for (const edu of this.eduForm.value.eduRows) {
-       console.log(edu);
-   }
+
    console.log('experience: \n');
    for (const exp of this.expForm.value.expRows) {
     console.log(exp);
   }
-   console.log('skill: \n');
-   for (const skill of this.skillForm.value.skillRows) {
-    console.log(skill);
-  }
+
    this.resumeService.save(this.cookieService.get('domainSource'),this.eduForm.value.eduRows,this.expForm.value.expRows,this.skillForm.value.skillRows).subscribe(
      ()=>{
-        this.router.navigate(['resume1']);
+        this.router.navigate(['resume']);
      }
    );
 }

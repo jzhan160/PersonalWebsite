@@ -12,7 +12,6 @@ var DB = require("../db/db.js");
 router.post("/do_register", function (req, res) {
   var email = req.body.email;
   var password = md5(req.body.password);
-  console.log("do_register");
   DB.find(
     "users",
     {
@@ -40,9 +39,6 @@ router.post("/do_register", function (req, res) {
   );
 });
 
-router.post("/login", function (req, res) {
-  res.status(401).json({ user: "unauthorizied" });
-});
 
 router.post("/searchDomainName", function (req, res) {
   var domainName = req.body.domainName;
@@ -56,8 +52,6 @@ router.post("/searchDomainName", function (req, res) {
         console.log(error);
       }
       if (data.length > 0) {
-        //data is a json array!
-        //console.log("RES: "+data[0]);
         res.status(200).json({
           user: "Find domain name",
           templateId: data[0].templateId,
@@ -65,7 +59,7 @@ router.post("/searchDomainName", function (req, res) {
 
         });
       } else {
-        res.status(404).json({ user: "No domain name" });
+         res.status(404).json({ user: "No domain name" });
       }
     }
   );
@@ -74,7 +68,6 @@ router.post("/searchDomainName", function (req, res) {
 router.post("/do_login", function (req, res) {
   var email = req.body.email;
   var password = md5(req.body.password);
-  console.log("login");
   DB.find(
     "users",
     {
@@ -86,8 +79,8 @@ router.post("/do_login", function (req, res) {
         console.log(error);
       }
       if (data.length > 0) {
-        //console.log(data);
         req.session.domain = data[0].domainName;
+        console.log(req.session)
         res
           .status(200)
           .json({
@@ -103,7 +96,6 @@ router.post("/do_login", function (req, res) {
 });
 
 
-
 router.get("/logout", function (req, res) {
   req.session.domainName = null;
   res.status(200).json({ user: "Logout" });
@@ -111,7 +103,6 @@ router.get("/logout", function (req, res) {
 
 
 router.post("/submit_info", function (req, res) {
-  console.log("info")
   var email = req.body.email; //insert by email
   var templateId = req.body.templateId;
   var username = req.body.username;
@@ -135,7 +126,6 @@ router.post("/submit_info", function (req, res) {
       phone: phone,
       templateId: templateId
     },
-
     function (err, data) {
       req.session.domainName = domainName;
       res.status(200).json({ user: "info completed" });
@@ -176,7 +166,8 @@ router.post("/getInfo", function (req, res) {
         console.log(data[0].photoPath);
 
         res.status(200).json({
-          photoPath: data[0].photoPath
+          photoPath: data[0].photoPath,
+          username: data[0].username
         });
       } else {
         res.status(404).json({ user: "No domain name" });

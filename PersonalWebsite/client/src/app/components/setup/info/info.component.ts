@@ -3,6 +3,8 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { UserService } from "../../../entity/user/user.service";
 import { CookieService } from "ngx-cookie-service";
+import { MatSnackBar } from '@angular/material';
+
 import {
   FileUploader,
   FileSelectDirective
@@ -38,7 +40,8 @@ export class InfoComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private cookieService: CookieService,
-    public _d: DomSanitizer
+    public _d: DomSanitizer,
+    private snackBar: MatSnackBar
   ) {
     this.infoForm = this.fb.group({
       username: [""],
@@ -52,9 +55,6 @@ export class InfoComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => (this.templateId = params["id"])
     );
-    // this.userService.selectTemplate(this.templateId).subscribe(() => {
-    //   console.log(this.templateId);
-    // });
     this.cookieService.set('templateId', this.templateId);
     this.uploader.onAfterAddingFile = file => {
       file.withCredentials = false;
@@ -65,31 +65,48 @@ export class InfoComponent implements OnInit {
       status: any,
       headers: any
     ) => {
-      //console.log("ImageUpload:uploaded:", item, status, response);
-      //  {"success":true,"path":"uploads\\public\\photo-1553522180374..jpg","filename":"photo-1553522180374..jpg"}
       let entry = response.substring(0, response.length - 1).split(",");
       let pathPair = entry[1].split(":");
       let filenamePair = entry[2].split(":");
       this.path = pathPair[1].substring(1, pathPair[1].length - 1);
       this.filename = filenamePair[1].substring(1, filenamePair[1].length - 1);
-    //  console.log("receive path: "+this.path);
-     // console.log("receive filename: "+this.filename);
-      this.userService.completeInfo(
-        this.username,
-        this.domainName,
-        this.address,
-        this.phone,
-        this.path,
-        this.filename,
-        this.templateId,
-        this.cookieService.get('email')
-        ).subscribe(() => {
-        this.cookieService.set("domainSource", this.domainName);
-        this.cookieService.set("domainDest", this.domainName);
-        this.cookieService.set("email",null);
-        this.router.navigate(["/" + this.domainName]);
-      });
-     };
+      this.userService.searchDomainName(this.domainName).subscribe(
+        () => {
+          this.snackBar.open('The domain name existed!',
+            'Dismiss', { duration: 2000 });
+          this.infoForm = this.fb.group({
+            username: [this.username],
+            domainName: [""],
+            address: [this.address],
+            phone: [this.phone]
+          });
+        },
+        error => {
+          this.userService.completeInfo(
+            this.username,
+            this.domainName,
+            this.address,
+            this.phone,
+            this.path,
+            this.filename,
+            this.templateId,
+            this.cookieService.get('email')
+          ).subscribe(() => {
+            this.cookieService.set("domainSource", this.domainName);
+            this.cookieService.set("domainDest", this.domainName);
+            this.cookieService.set("email", null);
+            this.router.navigate(["/" + this.domainName]);
+          },
+            error => {
+              if (error.status == 400) {
+
+              }
+            }
+          );
+        }
+      );
+
+    }
   }
 
   setupFinish(domainName, username, address, phone) {
@@ -98,8 +115,6 @@ export class InfoComponent implements OnInit {
     this.address = address;
     this.phone = phone;
     this.uploader.uploadAll();
-
-    console.log("uploada;");
   }
 
   fileChange(e) {

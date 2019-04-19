@@ -9,8 +9,6 @@ function connect(callback) {
         if (err) {
             console.log("failed to connect to db");
         }
-        console.log("Connected successfully to server");
-
         callback(db)
     })
 }

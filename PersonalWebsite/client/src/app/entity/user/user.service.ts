@@ -18,6 +18,10 @@ export class UserService {
     return this.http.post(`${this.uri}/searchDomainName`, domain);
   }
 
+  getSession(){
+     return this.http.get(`${this.uri}/getSession`);
+  }
+
   userLogin(emai, pwd) {
     const user = {
       email: emai,

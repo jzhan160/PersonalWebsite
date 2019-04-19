@@ -1,18 +1,17 @@
 <app-header></app-header>
-
 <div class="page">
   <!-- 1. Header -->
   <header>
-    <h1>{{ username }}</h1>
-    <p class="address">Syracuse, NY 13205</p>
-    <p class="contact">rowd3@gmail.com | (315)335-6431</p>
+    <h1>{{username}}</h1>
+    <p class="address">{{address}}</p>
+    <p class="contact">{{email}} | {{phone}}</p>
   </header>
   <!-- 2a. Resume Content -->
   <section class="resume_content">
     <article>
       <section>
+        <h2>Education</h2>
         <div *ngFor="let edu of education">
-        <h2>Formal Education</h2>
           <h3>
             {{ edu.school}}
             <span class="time"> <time datetime="">{{ edu.from }} - {{ edu.to }}</time>
@@ -33,18 +32,10 @@
             &#8211;  <time  class="start"> {{exp.to}}</time>
           </span>
         </h3>
-        <p>
-          <strong> {{exp.company}} </strong>
-         </p>
-         <p>{{exp.descrip}}</p>
-        <!-- <ul *ngFor="let d of descrip">
-
-          <li>
-            Reduced software development delays and increased code quality by
-            adapting the peer-to-peer code review process to leverage existing
-            version control system functionality.
-          </li>
-        </ul> -->
+        <p>{{exp.company}}</p>
+        <div *ngFor="let e of exp.descrip">
+          <p>{{e}}.</p>
+        </div>
       </div>
       </section>
 
@@ -56,7 +47,11 @@
       </section>
     </article>
   </section>
+  <div class="end"></div>
   <div class="text-right">
-    <button onclick="window.print()" class="btn-start-order">Download</button>
+    <button (click)="print()" class="btn-start-order">Download</button>
   </div>
 </div>
+<!--endprint-->
+
+ 
