@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild('childDisplayStory')
   childDisplayStory: DisplayStoryComponent;
 
-  showNum = 4;
+  showNum = 1;
   photoPath = "";
   username = "";
   constructor(private userService: UserService, private cookieService: CookieService) { 
@@ -34,6 +34,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
   }
+  onHomePage(){
+    
+  }
+
+
   onStoryCreated(){
     this.childDisplayStory.ngOnInit();
   }

@@ -28,10 +28,6 @@ export class DisplayStoryComponent implements OnInit {
     );
   }
 
-  onAdd(id:string, createTime: string){
-    alert(createTime);
-  }
-
   onDelete(id:string){
     this.storyService.deleteStory(id).subscribe(
       val =>{
