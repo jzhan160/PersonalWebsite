@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DisplayStoryComponent } from '../display-story/display-story.component';
 import { UserService } from "../../entity/user/user.service";
 import { CookieService } from "ngx-cookie-service";
-
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   showNum = 1;
   photoPath = "";
   username = "";
-  constructor(private userService: UserService, private cookieService: CookieService) { 
+  constructor(private userService: UserService, private cookieService: CookieService, private router: Router) { 
     this.userService.getInfo(cookieService.get("domainSource")).subscribe(
       val => {
         this.photoPath = "http://localhost:8080/"+ val['photoPath'];
@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
 
   }
   onHomePage(){
-    
+    this.router.navigate(["/"+this.cookieService.get("domainDest")]);
   }
 
 

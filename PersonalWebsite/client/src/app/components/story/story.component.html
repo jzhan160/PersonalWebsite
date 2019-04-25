@@ -2,24 +2,6 @@
 <div class="container">
   <h4> Recent Stories</h4>
 
-  <mat-expansion-panel style="width: 600px;">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Shiba Inu
-      </mat-panel-title>
-      <mat-panel-description>
-      </mat-panel-description>
-     
-    </mat-expansion-panel-header>
-    <p >
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-      very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-    </p>
-    <img width="120px" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <br>
-    <mat-card-actions>
-    </mat-card-actions>
-  </mat-expansion-panel>
 
   <mat-expansion-panel *ngFor="let s of stories" class="example-card" style="width: 600px;">
     <mat-expansion-panel-header>
@@ -33,7 +15,7 @@
     <p  style="white-space: pre-line">
       {{s.content}}
     </p>
-    <img width="120px" src={{s.urlPath}} alt="Photo of a Shiba Inu">
+    <img width="120px" src={{s.urlPath}}>
     <br>
     <mat-card-actions>
     </mat-card-actions>

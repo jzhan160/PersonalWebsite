@@ -16,7 +16,7 @@ export class RepositoryComponent implements OnInit {
   private fileContent:any;
   private shownFileName:any;
 
-  private curPath = this.cookieService.get('domainSource');
+  private curPath = this.cookieService.get('domainDest');
 
 
   constructor(private snackBar: MatSnackBar, private repoService: RepoService, private cookieService: CookieService) {

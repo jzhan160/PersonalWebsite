@@ -10,9 +10,9 @@ export class StoryService {
   uri = 'http://localhost:8080/story';
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
-  addStory(title, content, urlPath){
+  addStory(title, content, urlPath, domain){
     const story = {
-      domain:this.cookieService.get('domainSource'),
+      domain:domain,
       title: title,
       content: content,
       urlPath: urlPath,
@@ -21,11 +21,11 @@ export class StoryService {
     return this.http.post(`${this.uri}/add`, story);
   }
 
-  getStoryList(){
-    const domain = {
-      domain: this.cookieService.get('domainSource'),
+  getStoryList(domain){
+    const body = {
+      domain: domain,
     }
-    return this.http.post(`${this.uri}/get`, domain);
+    return this.http.post(`${this.uri}/get`, body);
   }
 
   deleteStory(id){

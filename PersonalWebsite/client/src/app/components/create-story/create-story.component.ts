@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter,Output, Input } from '@angular/core';
 import { StoryService } from '../../entity/story/story.service';
 import {NgForm} from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: 'app-create-story',
@@ -12,7 +13,7 @@ export class CreateStoryComponent implements OnInit {
 
   @Output() storyCreated = new EventEmitter();
 
-  constructor(private storyService: StoryService, private snackBar: MatSnackBar) { }
+  constructor(private storyService: StoryService, private snackBar: MatSnackBar, private cookieService:CookieService) { }
   
   ngOnInit() {}
 
@@ -23,7 +24,7 @@ export class CreateStoryComponent implements OnInit {
       });
       return;
     }
-    this.storyService.addStory(f.value.title, f.value.content, f.value.imgUrl).subscribe(
+    this.storyService.addStory(f.value.title, f.value.content, f.value.imgUrl, this.cookieService.get("domainSource")).subscribe(
       val => {
         this.snackBar.open('Added Successfully!', 'Dismiss',{
           duration: 2000

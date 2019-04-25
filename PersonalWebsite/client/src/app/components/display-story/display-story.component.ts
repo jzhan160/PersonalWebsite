@@ -2,6 +2,7 @@ import { Component, OnInit, Input,Output,EventEmitter, Inject} from '@angular/co
 import { StoryService } from '../../entity/story/story.service';
 import {MatSnackBar} from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: 'app-display-story',
@@ -12,12 +13,12 @@ export class DisplayStoryComponent implements OnInit {
 
  private stories;
 
-  constructor(private storyService: StoryService,private snackBar: MatSnackBar) {
+  constructor(private storyService: StoryService,private snackBar: MatSnackBar, private cookieService: CookieService) {
 
   }
 
   public ngOnInit() {
-    this.storyService.getStoryList().subscribe(
+    this.storyService.getStoryList(this.cookieService.get("domainDest")).subscribe(
       val => {
         this.stories = val;
         console.log(this.stories);
